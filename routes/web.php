@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/', function(){
+    return view('welcome');
+});
 
-Route::get('/', [AuthController::class, 'index']);
+Route::get('/login', [AuthController::class, 'index']);
+Route::post('/login', [AuthController::class, 'authenticate']);
+
 Route::get('/register', [AuthController::class, 'register']);
+Route::post('/register', [AuthController::class, 'store']);
