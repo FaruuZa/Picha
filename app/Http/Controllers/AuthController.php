@@ -21,9 +21,9 @@ class AuthController extends Controller
     public function store(Request $request){
 
         $validation = $request->validate([
-            'name' => 'required|max:255',
+            'name' => 'required|max:255|unique:users',
             'email' => 'required|unique:users|email:dns',
-            'password' => 'required'
+            'password' => 'required|min:8'
         ]);
 
         User::create([
@@ -32,7 +32,7 @@ class AuthController extends Controller
             'password' => Hash::make($request->password)
         ]);
 
-        return redirect('/login');
+        return redirect('/login')->with('RegisterDone', 'Your Account has been registered');
     }
     public function authenticate(Request $request){
 
