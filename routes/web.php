@@ -13,12 +13,16 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/', function(){
-    return view('welcome');
-})->name('home')->middleware('auth');
 
-Route::get('/login', [AuthController::class, 'index'])->name('login')->middleware('guest');
-Route::post('/login', [AuthController::class, 'authenticate']);
+Route::middleware(['guest'])->group(function () {
+    Route::get('/login', [AuthController::class, 'index'])->name('login');
+    Route::post('/login', [AuthController::class, 'authenticate']);
+    
+    Route::get('/register', [AuthController::class, 'register']);
+    Route::post('/register', [AuthController::class, 'store']);
+});
 
-Route::get('/register', [AuthController::class, 'register'])->middleware('guest');
-Route::post('/register', [AuthController::class, 'store']);
+Route::middleware(['auth'])->group(function () {
+    Route::get('/', function(){ return view('chat.index'); })->name('home');
+    Route::get('/logout', [AuthController::class, 'logout']);
+});
