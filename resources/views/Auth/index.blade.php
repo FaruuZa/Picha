@@ -45,6 +45,7 @@
                         <input type="password" id="inputPassword" name="password"
                             class="form-control @error('password')is-invalid @enderror" placeholder="Password" required>
                         <label for="inputPassword">Password</label>
+                        <i class="fas fa-eye" onclick="view(this)"></i>
                         @error('password')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -94,13 +95,14 @@
                         <input type="password" id="inputPassword" name="password"
                             class="form-control @error('password')is-invalid @enderror" placeholder="Password" required>
                         <label for="inputPassword">Password</label>
+                        <i class="fas fa-eye" onclick="view(this)"></i>
+
                         @error('password')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
                         @enderror
                     </div>
-
                     <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
                     <a href="/login">
                         <p class="mt-5 mb-3 text-muted text-center">

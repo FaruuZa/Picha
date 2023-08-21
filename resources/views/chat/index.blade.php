@@ -89,6 +89,7 @@
                             </div>
                         </div>
                         <a href="/logout">logout</a>
+                        <a href="/profile/{{ Auth::user()->name }}">profile</a>
                     </div>
 
                     <div class="ks-messages ks-messenger__messages">
@@ -101,8 +102,7 @@
                                 <div class="dropdown">
                                     <button class="btn btn-primary-outline ks-light ks-no-text ks-no-arrow" type="button"
                                         id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        <span class="la la-ellipsis-h ks-icon"></span>
+                                        aria-expanded="false"><i class="fas fa-ellipsis-v"></i>
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right ks-simple"
                                         aria-labelledby="dropdownMenuButton">
@@ -418,7 +418,6 @@
                                     <div class="dropdown-menu dropdown-menu-right ks-scrollable ks-smileys"
                                         aria-labelledby="dropdownMenuButton"
                                         style="overflow: hidden; padding: 0px; width: 200px;">
-
                                         <div class="jspContainer" style="width: 198px; height: 165px;">
                                             <div class="jspPane" style="padding: 0px; top: 0px; left: 0px; width: 100px;">
                                                 <div class="ks-smileys-wrapper">

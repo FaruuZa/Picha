@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\profileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,3 +27,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/', function(){ return view('chat.index'); })->name('home');
     Route::get('/logout', [AuthController::class, 'logout']);
 });
+
+Route::get('/profile/{User:name}', [profileController::class, 'index']);

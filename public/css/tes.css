@@ -152,3 +152,11 @@ body {
         width: 100% !important;
     }
 }
+
+.form-label-group i.fas.fa-eye, .form-label-group i.fas.fa-eye-slash {
+    position: absolute !important;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 5%;
+    cursor: pointer;
+}
