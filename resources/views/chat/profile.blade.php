@@ -10,7 +10,7 @@
     <div class="col-lg-8">
         <div class="panel profile-cover">
             <div class="profile-cover__img">
-                <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" />
+                <img src="{{ asset('/img/'. $User->image) }}" alt="" style="aspect-ratio:1/1;"/>
                 <h3 class="h3">{{ $User->name }}</h3>
             </div>
             <div class="profile-cover__action bg--img" data-overlay="0.3">

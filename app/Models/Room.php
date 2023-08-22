@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Room extends Model
 {
     use HasFactory;
+    protected $guarded = ['id'];
+    
+    public function Messages(){
+        return $this->hasMany(Message::class);
+    }
 }

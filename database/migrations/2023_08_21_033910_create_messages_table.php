@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
+            $table->foreignId('room_id');
             $table->text('message');
             $table->date('tgl_kirim');
             $table->timestamps();

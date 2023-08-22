@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\profileController;
+use App\Models\Room;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,8 +26,13 @@ Route::middleware(['guest'])->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/', function(){ return view('chat.index'); })->name('home');
+    Route::get('/', function(){ 
+        $rooms = Room::get();
+        return view('chat.index', compact('rooms'));
+     })->name('home');
     Route::get('/logout', [AuthController::class, 'logout']);
+    Route::get('/chat/{Room}',[ChatController::class, 'index']);
+    Route::post('/chat/{Room}',[ChatController::class, 'sendMessage']);
 });
 
-Route::get('/profile/{User:name}', [profileController::class, 'index']);
+Route::get('/profile/{User:name}', [ChatController::class, 'profile']);
