@@ -11,9 +11,6 @@ class Message extends Model
     protected $guarded = ['id'];
 
     public function User(){
-        return $this->belongsTo(User::class);
-    }
-    public function Room(){
-        return $this->belongsTo(Room::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

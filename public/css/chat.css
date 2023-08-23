@@ -17,22 +17,8 @@ body{
 
 .ks-messenger .ks-discussions {
     background: #fff;
-    width: 340px;
+    width: 60px;
     border-right: 1px solid #dee0e1
-}
-
-.ks-messenger .ks-discussions>.ks-search {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    -js-display: flex;
-    display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    height: 60px;
-    border-bottom: 1px solid #dee0e1
 }
 
 .ks-messenger .ks-discussions>.ks-search>.input-icon {

@@ -1,3 +1,3 @@
-$(document).ready(function(){
-    $('.jspContainer').jScrollPane();
-});
+
+const chat =  document.querySelector('.jspScrollable') 
+chat.scrollTop = chat.scrollHeight 
