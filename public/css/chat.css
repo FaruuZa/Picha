@@ -3,7 +3,7 @@ body{
 }
 
 .ks-page-content{
-    margin-top:20px;    
+    margin-top:5px;    
 }
 
 .ks-messenger {
@@ -16,9 +16,13 @@ body{
 }
 
 .ks-messenger .ks-discussions {
-    background: #fff;
+    background: #9174fa;
     width: 60px;
-    border-right: 1px solid #dee0e1
+    border-right: 1px solid #dee0e1;
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
+    padding-bottom: 10px;
 }
 
 .ks-messenger .ks-discussions>.ks-search>.input-icon {
@@ -80,7 +84,7 @@ body{
 .ks-messenger .ks-discussions>.ks-body .ks-items>.ks-item>a>.ks-avatar {
     position: relative;
     top: 3px;
-    margin-right: 12px
+    margin-right: 12px;
 }
 
 .ks-messenger .ks-discussions>.ks-body .ks-items>.ks-item>a>.ks-avatar>img {
@@ -916,4 +920,19 @@ body{
 
 a{
     text-decoration: none !important;
+}
+
+.ks-discussions a{
+    aspect-ratio: 1/1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+    /* .jspContainer{
+        background-color: rgba(202, 221, 236, 0.904);
+    } */
+.ks-body{
+    background-color: white;
 }

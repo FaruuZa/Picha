@@ -28,8 +28,7 @@
                                 </div>
                             </div>
                         </div> --}}
-                        <a href="/logout">logout</a>
-                        <a href="/profile/{{ Auth::user()->name }}">profile</a>
+                        <a href="/logout"><i class="fas fa-sign-out-alt"></i>logout</a>
                     </div>
 
                     <div class="ks-messages ks-messenger__messages">
@@ -46,14 +45,14 @@
                                     <ul class="ks-items">
                                         @foreach ($messages as $message)
                                         <li class="ks-item {{ Auth::user()->name == $message->User->name ? 'ks-from' : 'ks-self' }}">
-                                            <a href="/profile/{{ $message->User->name }}" class="ks-avatar ks-online">
+                                            <a href="/profile/{{ $message->User->name }}" class="ks-avatar ks-online ">
                                                 <img src="{{ asset('/img/'.$message->User->image) }}"
                                                 width="36" height="36" class="rounded-circle">
                                             </a>
                                             <div class="ks-body">
                                                 <div class="ks-header">
                                                     <a href="/profile/{{ $message->User->name }}" class="ks-name">{{ $message->User->name }}</a>
-                                                    <span class="ks-datetime">6:46 PM</span>
+                                                    <span class="ks-datetime">{{ \Carbon\Carbon::parse($message->created_at)->format('H:i') . ' WIB' }}</span>
                                                 </div>
                                                 <div class="ks-message">{{ $message->message }}</div>
                                             </div>

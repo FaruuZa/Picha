@@ -22,7 +22,7 @@ class AuthController extends Controller
 
         $validation = $request->validate([
             'name' => 'required|max:255|unique:users',
-            'email' => 'required|unique:users',
+            'email' => 'required|unique:users|email:dns',
             'password' => 'required|min:8'
         ]);
 
@@ -37,7 +37,7 @@ class AuthController extends Controller
     public function authenticate(Request $request){
 
         $credentials = $request->validate([
-            'email' => 'required',
+            'email' => 'required|email:dns',
             'password'=>'required'
         ]);
         if(Auth::attempt($credentials)){
