@@ -21,8 +21,9 @@ body{
     border-right: 1px solid #dee0e1;
     display: flex;
     align-items: center;
-    flex-direction: column-reverse;
-    padding-bottom: 10px;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 0 10px 0;
 }
 
 .ks-messenger .ks-discussions>.ks-search>.input-icon {
@@ -912,6 +913,7 @@ body{
 
 *{
     user-select: none;
+    -webkit-user-drag: none;
 }
 
 .ks-message{
@@ -935,4 +937,23 @@ a{
     } */
 .ks-body{
     background-color: white;
+}
+
+.tesModal{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+.modalAvatar{
+    margin-bottom: 10px;
+    width: 250px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.ks-discussions .ks-avatar{
+    cursor: pointer;
 }

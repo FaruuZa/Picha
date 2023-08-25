@@ -6,6 +6,7 @@
 
 @section('container')
     <div class="container">
+        @include('chat.modal.tesmodal')
         <div class="ks-page-content">
             <div class="ks-page-content-body">
                 <div class="ks-messenger">
@@ -28,6 +29,8 @@
                                 </div>
                             </div>
                         </div> --}}
+                        <a class="ks-avatar ks-online "><img src="{{ asset('/img/'. Auth::user()->image) }}"
+                            width="36" height="36" class="rounded-circle" data-toggle="modal" data-target="#myModal"></a>
                         <a href="/logout"><i class="fas fa-sign-out-alt"></i>logout</a>
                     </div>
 
