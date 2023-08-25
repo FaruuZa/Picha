@@ -29,8 +29,8 @@
                                 </div>
                             </div>
                         </div> --}}
-                        <a class="ks-avatar ks-online "><img src="{{ asset('/img/'. Auth::user()->image) }}"
-                            width="36" height="36" class="rounded-circle" data-toggle="modal" data-target="#myModal"></a>
+                        <a class="ks-avatar ks-online " data-toggle="modal" data-target="#myModal" data-whatever="{{ Auth::user()->name }}|{{ Auth::user()->image }}|{{ Auth::user()->created_at }}"><img src="{{ asset('/img/'. Auth::user()->image) }}"
+                            width="36" height="36" class="rounded-circle"></a>
                         <a href="/logout"><i class="fas fa-sign-out-alt"></i>logout</a>
                     </div>
 
@@ -48,13 +48,13 @@
                                     <ul class="ks-items">
                                         @foreach ($messages as $message)
                                         <li class="ks-item {{ Auth::user()->name == $message->User->name ? 'ks-from' : 'ks-self' }}">
-                                            <a href="/profile/{{ $message->User->name }}" class="ks-avatar ks-online ">
+                                            <a href="" class="ks-avatar ks-online " data-toggle="modal" data-target="#myModal" data-whatever="{{ $message->User->name }}|{{ $message->User->image }}|{{ $message->User->created_at }}">
                                                 <img src="{{ asset('/img/'.$message->User->image) }}"
                                                 width="36" height="36" class="rounded-circle">
                                             </a>
                                             <div class="ks-body">
                                                 <div class="ks-header">
-                                                    <a href="/profile/{{ $message->User->name }}" class="ks-name">{{ $message->User->name }}</a>
+                                                    <a href="" class="ks-name" data-toggle="modal" data-target="#myModal" data-whatever="{{ $message->User->name }}|{{ $message->User->image }}|{{ $message->User->created_at }}">{{ $message->User->name }}</a>
                                                     <span class="ks-datetime">{{ \Carbon\Carbon::parse($message->created_at)->format('H:i') . ' WIB' }}</span>
                                                 </div>
                                                 <div class="ks-message">{{ $message->message }}</div>

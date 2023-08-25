@@ -28,5 +28,3 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/',[ChatController::class, 'index']);
     Route::post('/',[ChatController::class, 'sendMessage']);
 });
-
-Route::get('/profile/{User:name}', [ChatController::class, 'profile']);

@@ -16,9 +16,6 @@ class ChatController extends Controller
 
         return view('chat.index', compact(['messages']));
     }
-    public function profile(User $User){
-        return view('chat.profile', compact('User'));
-    }
     public function sendMessage(Request $request){
         $Vmessage = $request->validate([
             'message' => 'required'
