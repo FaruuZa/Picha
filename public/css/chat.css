@@ -952,6 +952,29 @@ a{
     aspect-ratio: 1/1;
     border-radius: 50%;
     object-fit: cover;
+    overflow: hidden;
+    position: relative;
+}
+.modalAvatar img{
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+.modalAvatar .editAvatar{
+    position: absolute;
+    width: 100%;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(94, 94, 94, 0.473);
+    z-index: -1;
+    cursor: pointer;
+}
+
+.modalAvatar:hover > .editAvatar{
+    z-index: 20;
 }
 
 .ks-discussions .ks-avatar{

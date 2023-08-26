@@ -48,13 +48,13 @@
                                     <ul class="ks-items">
                                         @foreach ($messages as $message)
                                         <li class="ks-item {{ Auth::user()->name == $message->User->name ? 'ks-from' : 'ks-self' }}">
-                                            <a href="" class="ks-avatar ks-online " data-toggle="modal" data-target="#myModal" data-whatever="{{ $message->User->name }}|{{ $message->User->image }}|{{ $message->User->created_at }}">
+                                            <a href="" class="ks-avatar ks-online " data-toggle="modal" data-target="{{ Auth::user()->name == $message->User->name ? '#myModal' : '#theirModal' }}" data-whatever="{{ $message->User->name }}|{{ $message->User->image }}|{{ $message->User->created_at }}">
                                                 <img src="{{ asset('/img/'.$message->User->image) }}"
                                                 width="36" height="36" class="rounded-circle">
                                             </a>
                                             <div class="ks-body">
                                                 <div class="ks-header">
-                                                    <a href="" class="ks-name" data-toggle="modal" data-target="#myModal" data-whatever="{{ $message->User->name }}|{{ $message->User->image }}|{{ $message->User->created_at }}">{{ $message->User->name }}</a>
+                                                    <a href="" class="ks-name" data-toggle="modal" data-target="{{ Auth::user()->name == $message->User->name ? '#myModal' : '#theirModal' }}" data-whatever="{{ $message->User->name }}|{{ $message->User->image }}|{{ $message->User->created_at }}">{{ $message->User->name }}</a>
                                                     <span class="ks-datetime">{{ \Carbon\Carbon::parse($message->created_at)->format('H:i') . ' WIB' }}</span>
                                                 </div>
                                                 <div class="ks-message">{{ $message->message }}</div>

@@ -1,10 +1,17 @@
 <div class="modal fade" id="myModal">
     <div class="modal-dialog">
         <div class="modal-content">
-
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+            </div>
             <!-- Modal body -->
             <div class="modal-body tesModal">
-                <img class="modalAvatar" src="{{ asset('/img/' . Auth::user()->image) }}" alt="">
+                <div class="modalAvatar">
+                    <div class="editAvatar"><i class="fas fa-camera fa-lg" style="color: #ffffff;"></i></div>
+                    <img src="{{ asset('/img/' . Auth::user()->image) }}" alt="">
+                </div>
                 <h1>{{ Auth::user()->name }}</h1>
                 <p class="disabled">Created At: {{ Auth::user()->created_at }}</p>
             </div>
@@ -12,6 +19,27 @@
             <!-- Modal footer -->
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="theirModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body tesModal">
+                <div class="modalAvatar">
+                    <img src="{{ asset('/img/' . Auth::user()->image) }}" alt="">
+                </div>
+                <h1>{{ Auth::user()->name }}</h1>
+                <p class="disabled">Created At: {{ Auth::user()->created_at }}</p>
             </div>
 
         </div>
