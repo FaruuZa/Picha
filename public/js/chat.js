@@ -16,3 +16,12 @@ $('#theirModal').on('show.bs.modal', function (event) {
     modal.find('.modal-body p').text('created at: ' + created)
     // modal.find('.modal-body image').src('/img/' + image)
   })
+
+function copyMessage(e){
+  f = e.parentElement;
+  g = f.parentElement;
+  h = g.parentElement;
+  i = h.parentElement;
+  message = i.querySelector('.ks-message').textContent
+  navigator.clipboard.writeText(message);
+}

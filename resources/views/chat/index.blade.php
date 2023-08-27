@@ -55,12 +55,27 @@
                                             <div class="ks-body">
                                                 <div class="ks-header">
                                                     <a href="" class="ks-name" data-toggle="modal" data-target="{{ Auth::user()->name == $message->User->name ? '#myModal' : '#theirModal' }}" data-whatever="{{ $message->User->name }}|{{ $message->User->image }}|{{ $message->User->created_at }}">{{ $message->User->name }}</a>
-                                                    <span class="ks-datetime">{{ \Carbon\Carbon::parse($message->created_at)->format('H:i') . ' WIB' }}</span>
+                                                    <div class="dropdown">
+                                                        <div class="ks-datetime more dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                                                        <div class="dropdown-menu dropdown-menu-right">
+                                                          <a class="dropdown-item" onclick="copyMessage(this)">copy</a>
+                                                          @if ($message->User->name == Auth::user()->name)
+                                                          <a class="dropdown-item" href="#">edit</a>
+                                                          <a class="dropdown-item" href="#">delete</a>
+                                                          @else 
+                                                          <a class="dropdown-item" href="#">Report</a>
+                                                          @endif
+                                                        </div>
+                                                      </div>
                                                 </div>
                                                 <div class="ks-message">{{ $message->message }}</div>
+                                                <div class="tes">
+                                                    <span class="ks-tes-datetime">{{ \Carbon\Carbon::parse($message->created_at)->format('H:i') . ' WIB' }}</span>
+                                                </div>
                                             </div>
                                         </li>
                                         @endforeach 
+                                        
                                     </ul>
                                 </div>
                                 <div class="jspVerticalBar">
@@ -77,7 +92,7 @@
                         </div>
                         <form action="/" class="ks-footer" method="POST">
                                 @csrf
-                                <input type="text" class="form-control" placeholder="Type something..." name="message" autofocus autocomplete="off">
+                                <input type="text" class="form-control" placeholder="Type something..." name="message" autofocus autocomplete="off" maxlength="141">
                                 <div class="ks-controls" style="width: fit-content;">
                                     <button type="submit" class="btn btn-primary">Send</button>
                                 </div>

@@ -1,5 +1,7 @@
+{{-- user --}}
+
 <div class="modal fade" id="myModal">
-    <div class="modal-dialog">
+    <form class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -9,6 +11,7 @@
             <!-- Modal body -->
             <div class="modal-body tesModal">
                 <div class="modalAvatar">
+                    {{-- <input type="file" name="avatar" id="avatar" class="editAvatar"> --}}
                     <div class="editAvatar"><i class="fas fa-camera fa-lg" style="color: #ffffff;"></i></div>
                     <img src="{{ asset('/img/' . Auth::user()->image) }}" alt="">
                 </div>
@@ -22,8 +25,10 @@
             </div>
 
         </div>
-    </div>
+    </form>
 </div>
+
+{{-- other  --}}
 
 <div class="modal fade" id="theirModal">
     <div class="modal-dialog">
@@ -41,7 +46,6 @@
                 <h1>{{ Auth::user()->name }}</h1>
                 <p class="disabled">Created At: {{ Auth::user()->created_at }}</p>
             </div>
-
         </div>
     </div>
 </div>

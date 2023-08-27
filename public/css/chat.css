@@ -17,7 +17,7 @@ body{
 
 .ks-messenger .ks-discussions {
     background: #9174fa;
-    width: 60px;
+    width: 70px;
     border-right: 1px solid #dee0e1;
     display: flex;
     align-items: center;
@@ -115,7 +115,8 @@ body{
     display: -webkit-flex;
     display: -ms-flexbox;
     -js-display: flex;
-    display: flex
+    display: flex;
+    width:80%;
 }
 
 .ks-messenger .ks-discussions>.ks-body .ks-items>.ks-item>a>.ks-body>.ks-message>img {
@@ -139,7 +140,7 @@ body{
     justify-content: space-between
 }
 
-.ks-messenger .ks-discussions>.ks-body .ks-items>.ks-item>a>.ks-body>.ks-name>.ks-datetime {
+.ks-messenger .ks-discussions>.ks-body .ks-items>.ks-item>a>.ks-body>.ks-name>.ks-datetime, .ks-tes-datetime {
     text-transform: uppercase;
     font-size: 10px;
     font-weight: 400;
@@ -268,7 +269,7 @@ body{
     display: -ms-flexbox;
     -js-display: flex;
     display: flex;
-    margin-bottom: 12px
+    margin-bottom: 12px;
 }
 
 .ks-messenger .ks-messages>.ks-body .ks-items>.ks-item:last-child,
@@ -309,7 +310,7 @@ body{
 }
 
 .ks-messenger .ks-messages>.ks-body .ks-items>.ks-item>.ks-body>.ks-header>.ks-datetime,
-.ks-messenger__messages>.ks-body .ks-items>.ks-item>.ks-body>.ks-header>.ks-datetime {
+.ks-messenger__messages>.ks-body .ks-items>.ks-item>.ks-body>.ks-header>.ks-datetime, .ks-tes-datetime {
     font-size: 10px;
     text-transform: uppercase;
     color: #858585
@@ -513,7 +514,7 @@ body{
     display: -webkit-flex;
     display: -ms-flexbox;
     -js-display: flex;
-    display: flex
+    display: flex;
 }
 
 .ks-messenger .ks-messages>.ks-footer>.form-control,
@@ -850,7 +851,7 @@ body{
 
 @media screen and (max-width:800px) {
     .ks-messenger .ks-discussions {
-        width: 100%
+        width: 10%
     }
     .ks-messenger .ks-messages,
     .ks-messenger__messages {
@@ -978,5 +979,25 @@ a{
 }
 
 .ks-discussions .ks-avatar{
+    cursor: pointer;
+}
+
+.ks-tes-datetime{
+    position: absolute;
+    top: -10px;
+    right: 0;
+}
+
+.tes{
+    position: relative;
+    width: 100%;
+}
+
+.ks-datetime.more{
+    opacity: 0;
+}
+
+.ks-body:hover > .ks-header .ks-datetime.more{
+    opacity: 1;
     cursor: pointer;
 }
