@@ -1,6 +1,6 @@
 
-const chat =  document.querySelector('.jspScrollable') 
-chat.scrollTop = chat.scrollHeight 
+const chat =  document.querySelector('.jspScrollable')
+chat.scrollTop = chat.scrollHeight
 
 
 $('#theirModal').on('show.bs.modal', function (event) {
@@ -12,9 +12,15 @@ $('#theirModal').on('show.bs.modal', function (event) {
     var created = user[2]
     var modal = $(this)
     modal.find('.modal-body h1').text(name)
-    modal.find('.modal-body .modalAvatar img').attr('src', '/img/' + image) 
+    modal.find('.modal-body .modalAvatar img').attr('src', '/img/' + image)
     modal.find('.modal-body p').text('created at: ' + created)
-    // modal.find('.modal-body image').src('/img/' + image)
+  })
+
+$('#deleteModal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget) // Button that triggered the modal
+    var tes = button.data('whatever') // Extract info from data-* attributes
+    var modal = $(this)
+    modal.find('.modal-body .id').val(tes)
   })
 
 function copyMessage(e){
@@ -24,4 +30,5 @@ function copyMessage(e){
   i = h.parentElement;
   message = i.querySelector('.ks-message').textContent
   navigator.clipboard.writeText(message);
+  $('#copyToast').toast('show')
 }

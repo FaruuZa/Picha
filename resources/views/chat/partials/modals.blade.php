@@ -6,7 +6,7 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
-                  </button>
+                </button>
             </div>
             <!-- Modal body -->
             <div class="modal-body tesModal">
@@ -36,7 +36,7 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
-                  </button>
+                </button>
             </div>
             <!-- Modal body -->
             <div class="modal-body tesModal">
@@ -49,3 +49,32 @@
         </div>
     </div>
 </div>
+
+{{-- delete modal --}}
+
+<div class="modal fade" id="deleteModal">
+    <div class="modal-dialog">
+        <form action="/del" method="POST">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body">
+                    {{-- <h3>delete this message?</h3> --}}
+                    <p>aaaa</p>
+                    @csrf
+                    <input type="text" class="id" name="id" readonly hidden>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-danger" type="submit">Delete</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+

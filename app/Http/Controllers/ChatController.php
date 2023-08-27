@@ -23,8 +23,12 @@ class ChatController extends Controller
 
         Message::create([
             'user_id' => Auth::user()->id,
-            'message' => $Vmessage['message'], 
+            'message' => $Vmessage['message'],
         ]);
         return back();
+    }
+    public function deleteMessage(Request $request){
+        Message::where('id', $request->id)->delete();
+        return back()->with('deleted', 'message deleted');
     }
 }

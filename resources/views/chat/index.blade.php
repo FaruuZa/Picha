@@ -6,7 +6,8 @@
 
 @section('container')
     <div class="container">
-        @include('chat.modal.tesmodal')
+        @include('chat.partials.toasts')
+        @include('chat.partials.modals')
         <div class="ks-page-content">
             <div class="ks-page-content-body">
                 <div class="ks-messenger">
@@ -61,8 +62,8 @@
                                                           <a class="dropdown-item" onclick="copyMessage(this)">copy</a>
                                                           @if ($message->User->name == Auth::user()->name)
                                                           <a class="dropdown-item" href="#">edit</a>
-                                                          <a class="dropdown-item" href="#">delete</a>
-                                                          @else 
+                                                          <a class="dropdown-item" data-toggle="modal" data-target="#deleteModal" data-whatever="{{$message->id}}">delete</a>
+                                                          @else
                                                           <a class="dropdown-item" href="#">Report</a>
                                                           @endif
                                                         </div>
@@ -74,8 +75,8 @@
                                                 </div>
                                             </div>
                                         </li>
-                                        @endforeach 
-                                        
+                                        @endforeach
+
                                     </ul>
                                 </div>
                                 <div class="jspVerticalBar">

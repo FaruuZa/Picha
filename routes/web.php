@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['guest'])->group(function () {
     Route::get('/login', [AuthController::class, 'index'])->name('login');
     Route::post('/login', [AuthController::class, 'authenticate']);
-    
+
     Route::get('/register', [AuthController::class, 'register']);
     Route::post('/register', [AuthController::class, 'store']);
 });
@@ -27,4 +27,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/logout', [AuthController::class, 'logout']);
     Route::get('/',[ChatController::class, 'index']);
     Route::post('/',[ChatController::class, 'sendMessage']);
+    Route::post('/del',[ChatController::class, 'deleteMessage']);
 });
