@@ -21,14 +21,21 @@ $('#deleteModal').on('show.bs.modal', function (event) {
     var tes = button.data('whatever') // Extract info from data-* attributes
     var modal = $(this)
     modal.find('.modal-body .id').val(tes)
-  })
+})
+
+$('#editModal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget) // Button that triggered the modal
+    var id = button.data('whatever') // Extract info from data-* attributes
+    var tes = button.parents('.ks-item .ks-body')
+    var text = tes.find('.ks-message').text()
+    var modal = $(this)
+    modal.find('.modal-body .id').val(id)
+    modal.find('.modal-body .pesan').val(text)
+})
 
 function copyMessage(e){
-  f = e.parentElement;
-  g = f.parentElement;
-  h = g.parentElement;
-  i = h.parentElement;
-  message = i.querySelector('.ks-message').textContent
+  f = e.parentElement.parentElement.parentElement.parentElement;
+  message = f.querySelector('.ks-message').textContent
   navigator.clipboard.writeText(message);
   $('#copyToast').toast('show')
 }

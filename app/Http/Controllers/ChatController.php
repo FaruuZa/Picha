@@ -31,4 +31,11 @@ class ChatController extends Controller
         Message::where('id', $request->id)->delete();
         return back()->with('deleted', 'message deleted');
     }
+
+    public function editMessage(Request $request){
+        Message::where('id', $request->id)->update([
+            'message' => $request->pesan
+        ]);
+        return back()->with('edited', 'message edited');
+    }
 }

@@ -61,7 +61,7 @@
                                                         <div class="dropdown-menu dropdown-menu-right">
                                                           <a class="dropdown-item" onclick="copyMessage(this)">copy</a>
                                                           @if ($message->User->name == Auth::user()->name)
-                                                          <a class="dropdown-item" href="#">edit</a>
+                                                          <a class="dropdown-item" data-toggle="modal" data-target="#editModal" data-whatever="{{$message->id}}">edit</a>
                                                           <a class="dropdown-item" data-toggle="modal" data-target="#deleteModal" data-whatever="{{$message->id}}">delete</a>
                                                           @else
                                                           <a class="dropdown-item" href="#">Report</a>
@@ -95,7 +95,7 @@
                                 @csrf
                                 <input type="text" class="form-control" placeholder="Type something..." name="message" autofocus autocomplete="off" maxlength="141">
                                 <div class="ks-controls" style="width: fit-content;">
-                                    <button type="submit" class="btn btn-primary">Send</button>
+                                    <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane" style="color: #ffffff;"></i></button>
                                 </div>
                             </form>
                     </div>
