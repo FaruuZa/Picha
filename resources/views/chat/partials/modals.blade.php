@@ -66,9 +66,9 @@
                     <input type="text" class="id" name="id" readonly hidden>
                 </div>
                 <div class="modal-footer" style="padding-top:5px; padding-bottom:5px;">
-                    <div class="but"  style="width:100%; display:flex; justify-content:center;">
-                        <button class="btn btn-secondary mr-1" data-dismiss="modal" type="button" style="width:40%">back</button>
-                        <button class="btn btn-danger" type="submit" style="width:45%">Delete</button>
+                    <div class="but"  style="width:100%; display:flex; justify-content:space-between;">
+                        <button class="btn btn-outline-secondary" data-dismiss="modal" type="button" style="width:49%"><i class="fas fa-times" class="text-secondary"></i></button>
+                        <button class="btn btn-outline-danger" type="submit" style="width:49%"><i class="fas fa-check" class="text-danger"></i></button>
                     </div>
 
                 </div>
@@ -90,17 +90,70 @@
                 </div> --}}
                 <!-- Modal body -->
                 <div class="modal-body" style="padding-bottom: 0;">
-                    <h5 class="modal-title mb-1" id="staticBackdropLabel">Edit Message</h5>
+                    <h5 class="modal-title mb-2" id="staticBackdropLabel">Edit Message</h5>
                     <input type="text" class="id" name="id" readonly hidden>
-                    <input type="text" name="pesan" class="pesan form-control mb-2">
+                    <input type="text" name="pesan" class="pesan form-control mb-4" style="width:500px;" maxlength="141" autocomplete="off">
                 </div>
                 <div class="modal-footer" style="padding-top:5px; padding-bottom:5px;">
-                    <div class="but"  style="width:100%; display:flex; justify-content:center;">
-                        <button class="btn btn-secondary mr-1" data-dismiss="modal" type="button" style="width:40%">back</button>
-                        <button class="btn btn-success" type="submit" style="width:45%"><i class="fas fa-paper-plane" style="color: #ffffff;"></i></button>
+                    <div class="but"  style="width:100%; display:flex; justify-content:space-between;">
+                        <button class="btn btn-outline-secondary" data-dismiss="modal" type="button" style="width:49%"><i class="fas fa-times" class="text-primary"></i></button>
+                        <button class="btn btn-outline-success" type="submit" style="width:49%" id="editButton"><i class="fas fa-check" class="text-primary"></i></button>
                     </div>
 
                 </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{{-- report modal --}}
+
+<div class="modal fade" id="reportModal">
+    <div class="modal-dialog report-modal " style="width: 300px">
+        <form action="/report" method="POST">
+            @csrf
+            <div class="modal-content ">
+                {{-- <div class="modal-header">
+                </div> --}}
+                <!-- Modal body -->
+                <div class="modal-body" style="padding-bottom: 0;">
+                    <h5 class="modal-title mb-4" id="staticBackdropLabel">Report Message</h5>
+                    <input type="text" class="id" name="id" readonly hidden>
+                </div>
+                <div class="modal-footer" style="padding-top:5px; padding-bottom:5px;">
+                    <div class="but"  style="width:100%; display:flex; justify-content:space-between;">
+                        <button class="btn btn-outline-secondary" data-dismiss="modal" type="button" style="width:49%"><i class="fas fa-times"></i></button>
+                        <button class="btn btn-outline-danger" type="submit" style="width:49%"><i class="fas fa-check"></i></button>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{{-- logout modal --}}
+
+<div class="modal fade" id="logoutModal">
+    <div class="modal-dialog logout-modal">
+        <form action="/logout" method="GET">
+            <div class="modal-content ">
+                {{-- <div class="modal-header">
+                </div> --}}
+                <!-- Modal body -->
+                <div class="modal-body" style="padding-bottom: 0;">
+                    <h5 class="modal-title mb-1" id="staticBackdropLabel">Logout</h5>
+                    <p>are you sure to Logout?</p>
+                </div>
+                <div class="modal-footer" style="padding-top:5px; padding-bottom:5px;">
+                    <div class="but"  style="width:100%; display:flex; justify-content:space-between;">
+                        <button class="btn btn-outline-secondary" data-dismiss="modal" type="button" style="width:49%"><i class="fas fa-times" class="text-secondary"></i></button>
+                        <button class="btn btn-outline-danger" type="submit" style="width:49%"><i class="fas fa-check" class="text-danger"></i></button>
+                    </div>
+
+                </div>
+                {{-- <div class="modal-footer">
+                </div> --}}
             </div>
         </form>
     </div>

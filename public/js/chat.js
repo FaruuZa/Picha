@@ -31,6 +31,8 @@ $('#editModal').on('show.bs.modal', function (event) {
     var modal = $(this)
     modal.find('.modal-body .id').val(id)
     modal.find('.modal-body .pesan').val(text)
+
+
 })
 
 function copyMessage(e){
@@ -39,3 +41,13 @@ function copyMessage(e){
   navigator.clipboard.writeText(message);
   $('#copyToast').toast('show')
 }
+
+$('#kirimInput').change(function (event){
+    var value = $(this).val();
+    var tombol = $(this).parent().find('#kirimButton')
+    if ( value.length > 0 ){
+        tombol.prop('disabled', false)
+    } else{
+        tombol.prop('disabled', true)
+    }
+})

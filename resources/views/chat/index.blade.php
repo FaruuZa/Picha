@@ -32,7 +32,7 @@
                         </div> --}}
                         <a class="ks-avatar ks-online " data-toggle="modal" data-target="#myModal" data-whatever="{{ Auth::user()->name }}|{{ Auth::user()->image }}|{{ Auth::user()->created_at }}"><img src="{{ asset('/img/'. Auth::user()->image) }}"
                             width="36" height="36" class="rounded-circle"></a>
-                        <a href="/logout"><i class="fas fa-sign-out-alt"></i>logout</a>
+                        <a data-toggle="modal" data-target="#logoutModal" style="color: white"><i class="fas fa-sign-out-alt"></i>logout</a>
                     </div>
 
                     <div class="ks-messages ks-messenger__messages">
@@ -64,7 +64,7 @@
                                                           <a class="dropdown-item" data-toggle="modal" data-target="#editModal" data-whatever="{{$message->id}}">edit</a>
                                                           <a class="dropdown-item" data-toggle="modal" data-target="#deleteModal" data-whatever="{{$message->id}}">delete</a>
                                                           @else
-                                                          <a class="dropdown-item" href="#">Report</a>
+                                                          <a class="dropdown-item" data-toggle="modal" data-target="#reportModal" data-whatever="{{$message->id}}">Report</a>
                                                           @endif
                                                         </div>
                                                       </div>
@@ -93,9 +93,9 @@
                         </div>
                         <form action="/" class="ks-footer" method="POST">
                                 @csrf
-                                <input type="text" class="form-control" placeholder="Type something..." name="message" autofocus autocomplete="off" maxlength="141">
+                                <input type="text" class="form-control" placeholder="Type something..." name="message" autofocus autocomplete="off" maxlength="141" id="kirimInput">
                                 <div class="ks-controls" style="width: fit-content;">
-                                    <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane" style="color: #ffffff;"></i></button>
+                                    <button type="submit" class="btn btn-primary" id="kirimButton" disabled><i class="fas fa-paper-plane" style="color: #ffffff;"></i></button>
                                 </div>
                             </form>
                     </div>

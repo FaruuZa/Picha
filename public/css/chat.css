@@ -1001,3 +1001,7 @@ a{
     opacity: 1;
     cursor: pointer;
 }
+
+a{
+    cursor: pointer;
+}

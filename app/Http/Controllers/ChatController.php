@@ -33,9 +33,14 @@ class ChatController extends Controller
     }
 
     public function editMessage(Request $request){
-        Message::where('id', $request->id)->update([
-            'message' => $request->pesan
+        $validated = $request->validate([
+            'pesan' => 'required'
         ]);
+
+        Message::where('id', $request->id)->update([
+            'message' => $validated['pesan']
+        ]);
+        
         return back()->with('edited', 'message edited');
     }
 }
