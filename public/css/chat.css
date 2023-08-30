@@ -1005,3 +1005,8 @@ a{
 a{
     cursor: pointer;
 }
+
+
+.search-bar{
+    width: 80vh;
+}

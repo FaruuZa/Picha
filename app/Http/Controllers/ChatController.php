@@ -3,18 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Models\Message;
-use App\Models\Room;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class ChatController extends Controller
 {
-    public function index(){
-
-        $messages = Message::with('User')->get();
-
-        return view('chat.index', compact(['messages']));
+    public function index(Request $request){
+        $searched = $request->query('search');
+        if(Str::length($searched) > 0){
+            $messages = Message::with('User')->where('message', 'like', '%' . $searched . '%')->get();
+        } else{
+            $messages = Message::with('User')->get();
+        }
+        return view('chat.index', compact(['messages', 'searched']));
     }
     public function sendMessage(Request $request){
         $Vmessage = $request->validate([
@@ -40,7 +42,7 @@ class ChatController extends Controller
         Message::where('id', $request->id)->update([
             'message' => $validated['pesan']
         ]);
-        
+
         return back()->with('edited', 'message edited');
     }
 }

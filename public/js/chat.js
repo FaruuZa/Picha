@@ -42,6 +42,13 @@ function copyMessage(e){
   $('#copyToast').toast('show')
 }
 
+// function copyMessage(e){
+//   var f = e.parents('.ks-item .ks-body');
+//   var message = f.find('.ks-message').text()
+//   navigator.clipboard.writeText(message);
+//   $('#copyToast').toast('show')
+// }
+
 $('#kirimInput').change(function (event){
     var value = $(this).val();
     var tombol = $(this).parent().find('#kirimButton')

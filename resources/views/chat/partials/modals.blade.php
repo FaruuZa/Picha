@@ -65,7 +65,7 @@
                     @csrf
                     <input type="text" class="id" name="id" readonly hidden>
                 </div>
-                <div class="modal-footer" style="padding-top:5px; padding-bottom:5px;">
+                <div class="modal-footer" style="padding-top:5px; padding-bo    ttom:5px;">
                     <div class="but"  style="width:100%; display:flex; justify-content:space-between;">
                         <button class="btn btn-outline-secondary" data-dismiss="modal" type="button" style="width:49%"><i class="fas fa-times" class="text-secondary"></i></button>
                         <button class="btn btn-outline-danger" type="submit" style="width:49%"><i class="fas fa-check" class="text-danger"></i></button>
