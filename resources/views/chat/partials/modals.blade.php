@@ -1,7 +1,8 @@
 {{-- user --}}
 
 <div class="modal fade" id="myModal">
-    <form class="modal-dialog">
+    <form class="modal-dialog" action="/change" method="post" enctype="multipart/form-data">
+        @csrf
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -10,10 +11,18 @@
             </div>
             <!-- Modal body -->
             <div class="modal-body tesModal">
-                <div class="modalAvatar">
+                <!-- <div class="modalAvatar">
                     {{-- <input type="file" name="avatar" id="avatar" class="editAvatar"> --}}
                     <div class="editAvatar"><i class="fas fa-camera fa-lg" style="color: #ffffff;"></i></div>
                     <img src="{{ asset('/img/' . Auth::user()->image) }}" alt="">
+                </div> -->
+                <div class="modalAvatar">
+                    <label class="label" for="file">
+                        <span class="glyphicon glyphicon-camera"></span>
+                        <span>Change Image</span>
+                    </label>
+                    <input id="file" type="file" onchange="loadFile(event)" name="image"/>
+                    <img src="{{ asset('/img/' . Auth::user()->image) }}" id="output" width="200" />
                 </div>
                 <h1>{{ Auth::user()->name }}</h1>
                 <p class="disabled">Created At: {{ Auth::user()->created_at }}</p>
@@ -21,7 +30,7 @@
 
             <!-- Modal footer -->
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id="btnProfileDiri">Close</button>
             </div>
 
         </div>
@@ -65,8 +74,8 @@
                     @csrf
                     <input type="text" class="id" name="id" readonly hidden>
                 </div>
-                <div class="modal-footer" style="padding-top:5px; padding-bo    ttom:5px;">
-                    <div class="but"  style="width:100%; display:flex; justify-content:space-between;">
+                <div class="modal-footer" style="padding-top:5px; padding-bottom:5px;">
+                    <div class="but" style="width:100%; display:flex; justify-content:space-between;">
                         <button class="btn btn-outline-secondary" data-dismiss="modal" type="button" style="width:49%"><i class="fas fa-times" class="text-secondary"></i></button>
                         <button class="btn btn-outline-danger" type="submit" style="width:49%"><i class="fas fa-check" class="text-danger"></i></button>
                     </div>
@@ -95,7 +104,7 @@
                     <input type="text" name="pesan" class="pesan form-control mb-4" style="width:500px;" maxlength="141" autocomplete="off">
                 </div>
                 <div class="modal-footer" style="padding-top:5px; padding-bottom:5px;">
-                    <div class="but"  style="width:100%; display:flex; justify-content:space-between;">
+                    <div class="but" style="width:100%; display:flex; justify-content:space-between;">
                         <button class="btn btn-outline-secondary" data-dismiss="modal" type="button" style="width:49%"><i class="fas fa-times" class="text-primary"></i></button>
                         <button class="btn btn-outline-success" type="submit" style="width:49%" id="editButton"><i class="fas fa-check" class="text-primary"></i></button>
                     </div>
@@ -121,7 +130,7 @@
                     <input type="text" class="id" name="id" readonly hidden>
                 </div>
                 <div class="modal-footer" style="padding-top:5px; padding-bottom:5px;">
-                    <div class="but"  style="width:100%; display:flex; justify-content:space-between;">
+                    <div class="but" style="width:100%; display:flex; justify-content:space-between;">
                         <button class="btn btn-outline-secondary" data-dismiss="modal" type="button" style="width:49%"><i class="fas fa-times"></i></button>
                         <button class="btn btn-outline-danger" type="submit" style="width:49%"><i class="fas fa-check"></i></button>
                     </div>
@@ -146,7 +155,7 @@
                     <p>are you sure to Logout?</p>
                 </div>
                 <div class="modal-footer" style="padding-top:5px; padding-bottom:5px;">
-                    <div class="but"  style="width:100%; display:flex; justify-content:space-between;">
+                    <div class="but" style="width:100%; display:flex; justify-content:space-between;">
                         <button class="btn btn-outline-secondary" data-dismiss="modal" type="button" style="width:49%"><i class="fas fa-times" class="text-secondary"></i></button>
                         <button class="btn btn-outline-danger" type="submit" style="width:49%"><i class="fas fa-check" class="text-danger"></i></button>
                     </div>
@@ -158,4 +167,3 @@
         </form>
     </div>
 </div>
-

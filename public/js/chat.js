@@ -16,6 +16,7 @@ $('#theirModal').on('show.bs.modal', function (event) {
     modal.find('.modal-body p').text('created at: ' + created)
   })
 
+
 $('#deleteModal').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget) // Button that triggered the modal
     var tes = button.data('whatever') // Extract info from data-* attributes
@@ -58,3 +59,13 @@ $('#kirimInput').change(function (event){
         tombol.prop('disabled', true)
     }
 })
+
+var loadFile = function () {
+    var image = $("#output");
+    var button = $("#btnProfileDiri");
+    var input = $("input#file")
+    image.attr('src', URL.createObjectURL(input.prop('files')[0]))
+    button.removeClass("btn-primary").addClass("btn-warning").attr('type', 'submit').attr('data-dismiss', '');
+    button.text("edit")
+  };
+  

@@ -29,4 +29,6 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/',[ChatController::class, 'sendMessage']);
     Route::post('/del',[ChatController::class, 'deleteMessage']);
     Route::post('/edit',[ChatController::class, 'editMessage']);
+    Route::post('/change',[ChatController::class, 'changePP']);
+
 });
