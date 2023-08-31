@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Message;
+use App\Models\Report;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -59,10 +60,18 @@ class ChatController extends Controller
         // dd($request);
         $imageName = '/user/' .Auth::user()->id . Auth::user()->name . '.' . $request->image->extension();
         $request->image->move(public_path('img/user'), $imageName);
-        
+
         User::where('id', Auth::user()->id)->update([
             'image' => $imageName
         ]);
         return back();
+    }
+
+    public function reported(Request $request){
+        Report::create([
+            'message_id' => $request['id'],
+            'user_id' => Auth::user()->id
+        ]);
+        return back()->with('reported', 'that message has been reported');
     }
 }

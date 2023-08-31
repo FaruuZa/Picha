@@ -23,6 +23,12 @@ $('#deleteModal').on('show.bs.modal', function (event) {
     var modal = $(this)
     modal.find('.modal-body .id').val(tes)
 })
+$('#reportModal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget) // Button that triggered the modal
+    var tes = button.data('whatever') // Extract info from data-* attributes
+    var modal = $(this)
+    modal.find('.modal-body .id').val(tes)
+})
 
 $('#editModal').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget) // Button that triggered the modal
@@ -68,4 +74,3 @@ var loadFile = function () {
     button.removeClass("btn-primary").addClass("btn-warning").attr('type', 'submit').attr('data-dismiss', '');
     button.text("edit")
   };
-  
