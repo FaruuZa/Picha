@@ -1,7 +1,7 @@
 {{-- user --}}
 
 <div class="modal fade" id="myModal">
-    <form class="modal-dialog" action="/change" method="POST">
+    <form class="modal-dialog" action="/change" method="post" enctype="multipart/form-data">
         @csrf
         <div class="modal-content">
             <div class="modal-header">
@@ -21,7 +21,7 @@
                         <span class="glyphicon glyphicon-camera"></span>
                         <span>Change Image</span>
                     </label>
-                    <input id="file" type="file" onchange="loadFile(event)" />
+                    <input id="file" type="file" onchange="loadFile(event)" name="image"/>
                     <img src="{{ asset('/img/' . Auth::user()->image) }}" id="output" width="200" />
                 </div>
                 <h1>{{ Auth::user()->name }}</h1>

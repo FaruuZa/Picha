@@ -1546,3 +1546,8 @@ a {
     border-radius: 50%;
     margin-bottom: 0;
   }
+
+  img.rounded-circle{
+    /* object-fit: cover;
+    transform: translate3d(0px, 0px, 0.8px); */
+}
