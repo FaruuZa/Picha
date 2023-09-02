@@ -14,15 +14,18 @@
                 <div class="ks-messenger">
                     <div class="ks-discussions">
                         <div class="atas">
-                            <a class="ks-avatar ks-online " data-toggle="modal" data-target="#myModal"
+                            <div class="ks-avatar ks-online " data-toggle="modal" data-target="#myModal"
                                 data-whatever="{{ Auth::user()->name }}|{{ Auth::user()->image }}|{{ Auth::user()->created_at }}"><img
                                     src="{{ asset('/img/' . Auth::user()->image) }}" width="36" height="36"
-                                    class="rounded-circle"></a>
+                                    class="rounded-circle"></div>
                         </div>
                         <div class="bawah">
-                            <a class="reported mb-1 "><i class="fas fa-tools btn" style="color: #ffffff;" data-toggle="tooltip" data-placement="right" title="Mods Tools"></i></a>
+                            @if (Auth::user()->role != 'user')
+
+                            <a href="#" data-toggle="tooltip" data-placement="right" title="Mods Tools"><i class="fas fa-tools fa-lg" style="color: #ffffff;" ></i></a>
+                            @endif
                             <a data-toggle="modal" data-target="#logoutModal"  data-toggle="tooltip" data-placement="right" title="Logout"><i
-                                    class="fas fa-sign-out-alt btn"style="color: white"></i></a>
+                                    class="fas fa-sign-out-alt fa-lg"style="color: white"></i></a>
                         </div>
                     </div>
 
@@ -102,8 +105,8 @@
                                                                     <a class="dropdown-item text-danger"
                                                                         data-toggle="modal" data-target="#deleteModal"
                                                                         data-whatever="{{ $message->id }}">delete</a>
-                                                                @elseif(Auth::user()->role == 'admin')
-                                                                    <a class="dropdown-item" data-toggle="modal"
+                                                                @elseif(Auth::user()->role == 'user')
+                                                                    <a class="dropdown-item text-danger" data-toggle="modal"
                                                                         data-target="#reportModal"
                                                                         data-whatever="{{ $message->id }}">Report</a>
                                                                 @endif

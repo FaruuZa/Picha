@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ChatController;
+use App\Http\Controllers\ModsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,11 +26,14 @@ Route::middleware(['guest'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/logout', [AuthController::class, 'logout']);
-    Route::get('/',[ChatController::class, 'index']);
-    Route::post('/',[ChatController::class, 'sendMessage']);
-    Route::post('/del',[ChatController::class, 'deleteMessage']);
-    Route::post('/edit',[ChatController::class, 'editMessage']);
-    Route::post('/change',[ChatController::class, 'changePP']);
-    Route::post('/report',[ChatController::class, 'reported']);
+    Route::get('/', [ChatController::class, 'index'])->name('home');
+    Route::post('/', [ChatController::class, 'sendMessage']);
+    Route::post('/del', [ChatController::class, 'deleteMessage']);
+    Route::post('/edit', [ChatController::class, 'editMessage']);
+    Route::post('/change', [ChatController::class, 'changePP']);
+    Route::post('/report', [ChatController::class, 'reported']);
 
+    Route::middleware('role:moderator,admin')->group(function () {
+        Route::get('/mods', [ModsController::class, 'index']);
+    });
 });

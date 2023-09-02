@@ -38,8 +38,6 @@ $('#editModal').on('show.bs.modal', function (event) {
     var modal = $(this)
     modal.find('.modal-body .id').val(id)
     modal.find('.modal-body .pesan').val(text)
-
-
 })
 
 function copyMessage(e){

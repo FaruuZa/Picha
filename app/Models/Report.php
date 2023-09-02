@@ -10,9 +10,9 @@ class Report extends Model
     use HasFactory;
     protected $guarded = ['id'];
     public function Message(){
-        return $this->hasOne(Message::class);
+        return $this->hasOne(Message::class, 'id');
     }
     public function Pelapor(){
-        return $this->hasOne(User::class, 'user_id');
+        return $this->belongsTo(User::class, 'id');
     }
 }

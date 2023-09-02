@@ -1417,13 +1417,6 @@ a {
     text-decoration: none !important;
 }
 
-.ks-discussions a {
-    aspect-ratio: 1/1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: white;
-}
 
 /* .jspContainer{
         background-color: rgba(202, 221, 236, 0.904);
@@ -1546,4 +1539,29 @@ a {
     border-radius: 50%;
     margin-bottom: 0;
   }
+
+.ks-discussions .bawah, .ks-discussions .atas{
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.ks-discussions .bawah a, .ks-discussions .atas a{
+    /* border-top: solid .1px rgba(0, 0, 0, 0.808);
+    border-bottom: solid .1px rgba(0, 0, 0, 0.808); */
+
+    width: 100%;
+    aspect-ratio: 10/8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ks-discussions .bawah a:hover, .ks-discussions .atas a:hover{
+    /* background-color: white; */
+    box-shadow: inset 0 0 2px black;
+}
 
