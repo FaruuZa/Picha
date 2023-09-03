@@ -1493,6 +1493,7 @@ a {
 
 .search-bar {
     width: 80vh;
+    opacity: .7;
 }
 
 .modalAvatar {
@@ -1565,3 +1566,24 @@ a {
     box-shadow: inset 0 0 2px black;
 }
 
+ul.ks-items {
+    display:flex;
+    flex-direction:column-reverse;
+}
+
+.ks-item{
+    margin-top: 0 !important;
+    margin-bottom: 4px !important;
+}
+
+.search{left: 30px;}
+
+.search-bar.keep-open{display:block !important;}
+
+.btn.cancel:hover{background-color: red;}
+
+.btn.confirm:hover{background-color: green;}
+
+input.form-control{
+    box-shadow: none !important;
+}

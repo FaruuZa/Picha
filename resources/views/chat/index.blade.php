@@ -41,7 +41,7 @@
                                         data-display="static" aria-expanded="false">
                                         <i class="fas fa-search"></i>
                                     </button>
-                                    <div class="dropdown-menu dropdown-menu-right ks-simple search-bar px-2"
+                                    <div class="dropdown-menu dropdown-menu-right ks-simple search-bar px-2 {{ $searched ? 'keep-open' : ''}}"
                                         aria-labelledby="dropdownMenuButton">
                                         <form action="" method="GET">
                                             <div class="input-group">
@@ -50,8 +50,12 @@
                                                     aria-describedby="button-addon2" autocomplete="off" autofocus
                                                     value="{{ $searched != '' ? $searched : '' }}">
                                                 <div class="input-group-append">
-                                                    <button class="btn btn-outline-secondary" type="submit"
-                                                        id="button-addon2">Search</button>
+                                                    @if ($searched)
+                                                    <a href="/" class="btn btn-outline-secondary cancel"
+                                                        id="button-addon2"><i class="fas fa-times"></i></a>
+                                                    @endif
+                                                    <button class="btn btn-outline-secondary confirm" type="submit"
+                                                        id="button-addon2"><i class="fas fa-check"></i></button>
                                                 </div>
                                             </div>
                                         </form>
@@ -65,11 +69,6 @@
                             <div class="jspContainer" style="width: 100%; height: auto;">
                                 <div class="jspPane" style="padding: 0px; top: 0px; width: 100%;">
                                     <ul class="ks-items">
-                                        @if ($searched)
-                                            <a href="/" class="btn btn-outline-primary position-fixed"
-                                                style="z-index:99;"><i class="fas fa-chevron-left"></i></a>
-                                            <div class="mb-5"></div>
-                                        @endif
                                         @if ($messages->count() == 0)
                                             <h3 class="disabled"
                                                 style="text-align:center; width:100%; color:rgba(75, 75, 75, 0.877);">there

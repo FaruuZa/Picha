@@ -15,10 +15,11 @@ class ChatController extends Controller
     {
         $searched = $request->query('search');
         if (Str::length($searched) > 0) {
-            $messages = Message::with('User')->where('message', 'like', '%' . $searched . '%')->get();
+            $messages = Message::with('User')->where('message', 'like', '%' . $searched . '%')->latest()->paginate(10);
         } else {
-            $messages = Message::with('User')->get();
+            $messages = Message::with('User')->latest()->paginate(10);
         }
+        $messages->lastPage();
         return view('chat.index', compact(['messages', 'searched']));
     }
     public function sendMessage(Request $request)
@@ -58,7 +59,7 @@ class ChatController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         // dd($request);
-        $imageName = '/user/' .Auth::user()->id . Auth::user()->name . '.' . $request->image->extension();
+        $imageName = 'user/' .Auth::user()->id . Auth::user()->name . '.' . $request->image->extension();
         $request->image->move(public_path('img/user'), $imageName);
 
         User::where('id', Auth::user()->id)->update([
