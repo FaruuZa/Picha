@@ -67,38 +67,6 @@ body {
     padding: 15px 20px;
 }
 
-.ks-messenger
-    .ks-discussions
-    > .ks-body
-    .ks-items
-    > .ks-item
-    > a
-    > .ks-group-amount {
-    position: relative;
-    top: 3px;
-    margin-right: 12px;
-    width: 36px;
-    height: 36px;
-    background-color: rgba(57, 81, 155, 0.1);
-    text-align: center;
-    line-height: 36px;
-    -webkit-border-radius: 50%;
-    border-radius: 50%;
-}
-
-.ks-messenger
-    .ks-discussions
-    > .ks-body
-    .ks-items
-    > .ks-item
-    > a
-    > .ks-group-amount
-    > .ks-badge {
-    position: absolute;
-    bottom: -1px;
-    right: -3px;
-}
-
 .ks-messenger .ks-discussions > .ks-body .ks-items > .ks-item > a > .ks-avatar {
     position: relative;
     top: 3px;
@@ -117,19 +85,6 @@ body {
     height: 36px;
     -webkit-border-radius: 50%;
     border-radius: 50%;
-}
-
-.ks-messenger
-    .ks-discussions
-    > .ks-body
-    .ks-items
-    > .ks-item
-    > a
-    > .ks-avatar
-    > .ks-badge {
-    position: absolute;
-    bottom: -3px;
-    right: -3px;
 }
 
 .ks-messenger .ks-discussions > .ks-body .ks-items > .ks-item > a > .ks-body {
@@ -211,27 +166,6 @@ body {
     top: 3px;
 }
 
-.ks-messenger .ks-discussions > .ks-body .ks-items > .ks-item.ks-active {
-    background: #ebeef5;
-    color: #333;
-    position: relative;
-}
-
-.ks-messenger
-    .ks-discussions
-    > .ks-body
-    .ks-items
-    > .ks-item.ks-active::before {
-    content: "";
-    width: 4px;
-    height: 100%;
-    background: #d7dceb;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
 .ks-messenger
     .ks-discussions
     > .ks-body
@@ -240,10 +174,6 @@ body {
     > a
     > .ks-group-amount {
     background-color: rgba(57, 81, 155, 0.1);
-}
-
-.ks-messenger .ks-discussions > .ks-body .ks-items > .ks-item.ks-unread {
-    background: rgba(247, 202, 24, 0.1);
 }
 
 .ks-messenger
@@ -314,13 +244,6 @@ body {
     font-weight: 500;
 }
 
-.ks-messenger .ks-messages > .ks-header > .ks-description > .ks-amount,
-.ks-messenger__messages > .ks-header > .ks-description > .ks-amount {
-    color: #858585;
-    font-size: 12px;
-    line-height: 12px;
-}
-
 .ks-messenger .ks-messages > .ks-body,
 .ks-messenger__messages > .ks-body {
     -webkit-box-flex: 1;
@@ -355,11 +278,6 @@ body {
     -js-display: flex;
     display: flex;
     margin-bottom: 12px;
-}
-
-.ks-messenger .ks-messages > .ks-body .ks-items > .ks-item:last-child,
-.ks-messenger__messages > .ks-body .ks-items > .ks-item:last-child {
-    margin-bottom: 0;
 }
 
 .ks-messenger .ks-messages > .ks-body .ks-items > .ks-item > .ks-body,
@@ -434,346 +352,6 @@ body {
     > .ks-header
     > .ks-datetime,
 .ks-tes-datetime {
-    font-size: 10px;
-    text-transform: uppercase;
-    color: #858585;
-}
-
-.ks-messenger
-    .ks-messages
-    > .ks-body
-    .ks-items
-    > .ks-item
-    > .ks-body
-    > .ks-message
-    > .ks-link,
-.ks-messenger__messages
-    > .ks-body
-    .ks-items
-    > .ks-item
-    > .ks-body
-    > .ks-message
-    > .ks-link {
-    position: relative;
-    margin-top: 10px;
-    padding-left: 12px;
-}
-
-.ks-messenger
-    .ks-messages
-    > .ks-body
-    .ks-items
-    > .ks-item
-    > .ks-body
-    > .ks-message
-    > .ks-link:before,
-.ks-messenger__messages
-    > .ks-body
-    .ks-items
-    > .ks-item
-    > .ks-body
-    > .ks-message
-    > .ks-link:before {
-    content: "";
-    width: 4px;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(57, 81, 155, 0.2);
-}
-
-.ks-messenger
-    .ks-messages
-    > .ks-body
-    .ks-items
-    > .ks-item
-    > .ks-body
-    > .ks-message
-    > .ks-files,
-.ks-messenger__messages
-    > .ks-body
-    .ks-items
-    > .ks-item
-    > .ks-body
-    > .ks-message
-    > .ks-files {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.ks-messenger
-    .ks-messages
-    > .ks-body
-    .ks-items
-    > .ks-item
-    > .ks-body
-    > .ks-message
-    > .ks-files
-    > .ks-file,
-.ks-messenger__messages
-    > .ks-body
-    .ks-items
-    > .ks-item
-    > .ks-body
-    > .ks-message
-    > .ks-files
-    > .ks-file {
-    float: left;
-    margin-top: 15px;
-    margin-right: 15px;
-}
-
-.ks-messenger
-    .ks-messages
-    > .ks-body
-    .ks-items
-    > .ks-item
-    > .ks-body
-    > .ks-message
-    > .ks-files
-    > .ks-file
-    a,
-.ks-messenger__messages
-    > .ks-body
-    .ks-items
-    > .ks-item
-    > .ks-body
-    > .ks-message
-    > .ks-files
-    > .ks-file
-    a {
-    display: block;
-    color: #333;
-    vertical-align: top;
-}
-
-.ks-messenger
-    .ks-messages
-    > .ks-body
-    .ks-items
-    > .ks-item
-    > .ks-body
-    > .ks-message
-    > .ks-files
-    > .ks-file
-    a
-    > .ks-info,
-.ks-messenger
-    .ks-messages
-    > .ks-body
-    .ks-items
-    > .ks-item
-    > .ks-body
-    > .ks-message
-    > .ks-files
-    > .ks-file
-    a
-    > .ks-thumb,
-.ks-messenger__messages
-    > .ks-body
-    .ks-items
-    > .ks-item
-    > .ks-body
-    > .ks-message
-    > .ks-files
-    > .ks-file
-    a
-    > .ks-info,
-.ks-messenger__messages
-    > .ks-body
-    .ks-items
-    > .ks-item
-    > .ks-body
-    > .ks-message
-    > .ks-files
-    > .ks-file
-    a
-    > .ks-thumb {
-    float: left;
-}
-
-.ks-messenger
-    .ks-messages
-    > .ks-body
-    .ks-items
-    > .ks-item
-    > .ks-body
-    > .ks-message
-    > .ks-files
-    > .ks-file
-    a
-    > .ks-thumb,
-.ks-messenger__messages
-    > .ks-body
-    .ks-items
-    > .ks-item
-    > .ks-body
-    > .ks-message
-    > .ks-files
-    > .ks-file
-    a
-    > .ks-thumb {
-    margin-right: 5px;
-    text-align: center;
-}
-
-.ks-messenger
-    .ks-messages
-    > .ks-body
-    .ks-items
-    > .ks-item
-    > .ks-body
-    > .ks-message
-    > .ks-files
-    > .ks-file
-    a
-    > .ks-thumb
-    > .ks-icon,
-.ks-messenger__messages
-    > .ks-body
-    .ks-items
-    > .ks-item
-    > .ks-body
-    > .ks-message
-    > .ks-files
-    > .ks-file
-    a
-    > .ks-thumb
-    > .ks-icon {
-    font-size: 36px;
-    line-height: 36px;
-}
-
-.ks-messenger
-    .ks-messages
-    > .ks-body
-    .ks-items
-    > .ks-item
-    > .ks-body
-    > .ks-message
-    > .ks-files
-    > .ks-file
-    a
-    > .ks-thumb
-    > img,
-.ks-messenger__messages
-    > .ks-body
-    .ks-items
-    > .ks-item
-    > .ks-body
-    > .ks-message
-    > .ks-files
-    > .ks-file
-    a
-    > .ks-thumb
-    > img {
-    width: 36px;
-    height: 36px;
-    -webkit-border-radius: 2px;
-    border-radius: 2px;
-}
-
-.ks-messenger
-    .ks-messages
-    > .ks-body
-    .ks-items
-    > .ks-item
-    > .ks-body
-    > .ks-message
-    > .ks-files
-    > .ks-file
-    a
-    > .ks-info
-    > .ks-name,
-.ks-messenger
-    .ks-messages
-    > .ks-body
-    .ks-items
-    > .ks-item
-    > .ks-body
-    > .ks-message
-    > .ks-files
-    > .ks-file
-    a
-    > .ks-info
-    > .ks-size,
-.ks-messenger__messages
-    > .ks-body
-    .ks-items
-    > .ks-item
-    > .ks-body
-    > .ks-message
-    > .ks-files
-    > .ks-file
-    a
-    > .ks-info
-    > .ks-name,
-.ks-messenger__messages
-    > .ks-body
-    .ks-items
-    > .ks-item
-    > .ks-body
-    > .ks-message
-    > .ks-files
-    > .ks-file
-    a
-    > .ks-info
-    > .ks-size {
-    display: block;
-}
-
-.ks-messenger
-    .ks-messages
-    > .ks-body
-    .ks-items
-    > .ks-item
-    > .ks-body
-    > .ks-message
-    > .ks-files
-    > .ks-file
-    a
-    > .ks-info
-    > .ks-name,
-.ks-messenger__messages
-    > .ks-body
-    .ks-items
-    > .ks-item
-    > .ks-body
-    > .ks-message
-    > .ks-files
-    > .ks-file
-    a
-    > .ks-info
-    > .ks-name {
-    font-size: 12px;
-    margin-bottom: 2px;
-}
-
-.ks-messenger
-    .ks-messages
-    > .ks-body
-    .ks-items
-    > .ks-item
-    > .ks-body
-    > .ks-message
-    > .ks-files
-    > .ks-file
-    a
-    > .ks-info
-    > .ks-size,
-.ks-messenger__messages
-    > .ks-body
-    .ks-items
-    > .ks-item
-    > .ks-body
-    > .ks-message
-    > .ks-files
-    > .ks-file
-    a
-    > .ks-info
-    > .ks-size {
     font-size: 10px;
     text-transform: uppercase;
     color: #858585;
@@ -893,50 +471,6 @@ body {
     border-left: 10px solid #eff1f7;
 }
 
-.ks-messenger .ks-messages > .ks-body .ks-items > .ks-item.ks-unread > .ks-body,
-.ks-messenger__messages > .ks-body .ks-items > .ks-item.ks-unread > .ks-body {
-    background: #fcf8e7;
-}
-
-.ks-messenger
-    .ks-messages
-    > .ks-body
-    .ks-items
-    > .ks-item.ks-unread.ks-self
-    > .ks-body:after,
-.ks-messenger
-    .ks-messages
-    > .ks-body
-    .ks-items
-    > .ks-item.ks-unread.ks-self
-    > .ks-body:before,
-.ks-messenger__messages
-    > .ks-body
-    .ks-items
-    > .ks-item.ks-unread.ks-self
-    > .ks-body:after,
-.ks-messenger__messages
-    > .ks-body
-    .ks-items
-    > .ks-item.ks-unread.ks-self
-    > .ks-body:before {
-    border-top: 10px solid #fcf8e7;
-}
-
-.ks-messenger
-    .ks-messages
-    > .ks-body
-    .ks-items
-    > .ks-item.ks-unread.ks-from
-    > .ks-body:before,
-.ks-messenger__messages
-    > .ks-body
-    .ks-items
-    > .ks-item.ks-unread.ks-from
-    > .ks-body:before {
-    border-left: 10px solid #fcf8e7;
-}
-
 .ks-messenger .ks-messages > .ks-footer,
 .ks-messenger__messages > .ks-footer {
     padding: 15px 20px;
@@ -973,201 +507,6 @@ body {
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
-}
-
-.ks-messenger .ks-messages > .ks-footer > .ks-controls .ks-attachment,
-.ks-messenger .ks-messages > .ks-footer > .ks-controls .ks-smile,
-.ks-messenger__messages > .ks-footer > .ks-controls .ks-attachment,
-.ks-messenger__messages > .ks-footer > .ks-controls .ks-smile {
-    font-size: 22px;
-    color: #8997c3;
-    line-height: 22px;
-    margin-left: 25px;
-}
-
-.ks-messenger .ks-messages > .ks-footer > .ks-controls > .dropdown,
-.ks-messenger__messages > .ks-footer > .ks-controls > .dropdown {
-    display: inline-block;
-}
-
-.ks-messenger .ks-messages > .ks-footer > .ks-controls > .dropdown > .ks-smile,
-.ks-messenger__messages > .ks-footer > .ks-controls > .dropdown > .ks-smile {
-    padding: 0;
-}
-
-.ks-messenger
-    .ks-messages
-    > .ks-footer
-    > .ks-controls
-    > .dropdown
-    > .ks-smileys,
-.ks-messenger__messages > .ks-footer > .ks-controls > .dropdown > .ks-smileys {
-    width: 200px;
-    height: 167px;
-}
-
-.ks-messenger
-    .ks-messages
-    > .ks-footer
-    > .ks-controls
-    > .dropdown
-    > .ks-smileys
-    .ks-smileys-wrapper,
-.ks-messenger__messages
-    > .ks-footer
-    > .ks-controls
-    > .dropdown
-    > .ks-smileys
-    .ks-smileys-wrapper {
-    padding: 10px;
-}
-
-.ks-messenger
-    .ks-messages
-    > .ks-footer
-    > .ks-controls
-    > .dropdown
-    > .ks-smileys
-    table,
-.ks-messenger__messages
-    > .ks-footer
-    > .ks-controls
-    > .dropdown
-    > .ks-smileys
-    table {
-    width: 100%;
-}
-
-.ks-messenger
-    .ks-messages
-    > .ks-footer
-    > .ks-controls
-    > .dropdown
-    > .ks-smileys
-    table
-    td,
-.ks-messenger__messages
-    > .ks-footer
-    > .ks-controls
-    > .dropdown
-    > .ks-smileys
-    table
-    td {
-    vertical-align: middle;
-    text-align: center;
-    padding-bottom: 10px;
-    cursor: pointer;
-}
-
-.ks-messenger
-    .ks-messages
-    > .ks-footer
-    > .ks-controls
-    > .dropdown
-    > .ks-smileys
-    table
-    tr:last-child
-    td,
-.ks-messenger__messages
-    > .ks-footer
-    > .ks-controls
-    > .dropdown
-    > .ks-smileys
-    table
-    tr:last-child
-    td {
-    padding-bottom: 0;
-}
-
-.ks-messenger .ks-messages > .ks-files,
-.ks-messenger__messages > .ks-files {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    padding: 20px;
-    padding-top: 0;
-    padding-bottom: 10px;
-    margin-top: -10px;
-}
-
-.ks-messenger .ks-messages > .ks-files > .ks-file,
-.ks-messenger__messages > .ks-files > .ks-file {
-    display: inline-block;
-    cursor: pointer;
-    margin-right: 10px;
-    margin-top: 10px;
-    position: relative;
-}
-
-.ks-messenger .ks-messages > .ks-files > .ks-file:hover > .ks-thumb,
-.ks-messenger__messages > .ks-files > .ks-file:hover > .ks-thumb {
-    border: solid 1px #42a5f5;
-}
-
-.ks-messenger .ks-messages > .ks-files > .ks-file > .ks-thumb,
-.ks-messenger__messages > .ks-files > .ks-file > .ks-thumb {
-    width: 90px;
-    height: 90px;
-    -webkit-border-radius: 2px;
-    border-radius: 2px;
-    background-color: #fff;
-    border: solid 1px #dee0e1;
-    margin-bottom: 5px;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    -js-display: flex;
-    display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    text-align: center;
-    font-size: 45px;
-    color: #25628f;
-}
-
-.ks-messenger .ks-messages > .ks-files > .ks-file > .ks-thumb::before,
-.ks-messenger__messages > .ks-files > .ks-file > .ks-thumb::before {
-    width: 100%;
-}
-
-.ks-messenger .ks-messages > .ks-files > .ks-file > img.ks-thumb,
-.ks-messenger__messages > .ks-files > .ks-file > img.ks-thumb {
-    border: none;
-}
-
-.ks-messenger .ks-messages > .ks-files > .ks-file > .ks-name,
-.ks-messenger__messages > .ks-files > .ks-file > .ks-name {
-    display: block;
-    font-size: 12px;
-    font-weight: 400;
-    color: #333;
-}
-
-.ks-messenger .ks-messages > .ks-files > .ks-file > .ks-size,
-.ks-messenger__messages > .ks-files > .ks-file > .ks-size {
-    position: relative;
-    top: -2px;
-    font-size: 10px;
-    color: #858585;
-}
-
-.ks-messenger .ks-info,
-.ks-messenger__info {
-    width: 240px;
-    background: #fff;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    -js-display: flex;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    border-left: 1px solid #dee0e1;
 }
 
 .ks-messenger .ks-info > .ks-header,
@@ -1319,111 +658,24 @@ body {
     margin-top: 15px;
 }
 
-@media screen and (max-width: 1200px) {
-    .btn.ks-messenger-info-block-toggle {
-        position: static;
-    }
-    .ks-messenger .ks-info,
-    .ks-messenger__info {
-        position: fixed;
-        top: 120px;
-        bottom: 0;
-        right: -241px;
-        z-index: 4;
-        height: -webkit-calc(100% - 120px);
-        height: calc(100% - 120px);
-    }
-    .ks-messenger .ks-info.ks-open,
-    .ks-messenger__info.ks-open {
-        right: 0;
-        -webkit-transition: right 0.2s ease;
-        transition: right 0.2s ease;
-    }
-}
+::-webkit-scrollbar {width: 5px}
 
-@media screen and (max-width: 800px) {
-    .ks-messenger .ks-discussions {
-        width: 10%;
-    }
-    .ks-messenger .ks-messages,
-    .ks-messenger__messages {
-        position: fixed;
-        top: 120px;
-        bottom: 0;
-        z-index: 2;
-        height: -webkit-calc(100% - 120px);
-        height: calc(100% - 120px);
-        width: 100%;
-        right: -1000px;
-    }
-    .ks-messenger .ks-messages.ks-open,
-    .ks-messenger__messages.ks-open {
-        right: 0;
-        -webkit-transition: right 0.2s ease;
-        transition: right 0.2s ease;
-    }
-}
+::-webkit-scrollbar-thumb {background-color: rgb(73, 73, 243)}
 
-@media screen and (max-width: 560px) {
-    .ks-messenger .ks-messages > .ks-footer,
-    .ks-messenger__messages > .ks-footer {
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-        flex-direction: column;
-    }
-    .ks-messenger .ks-messages > .ks-footer textarea,
-    .ks-messenger__messages > .ks-footer textarea {
-        margin-bottom: 20px;
-    }
-    .ks-messenger__ks-messages-footer {
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-        flex-direction: column;
-    }
-    .ks-messenger__ks-messages-footer textarea {
-        margin-bottom: 20px;
-    }
-}
+.ks-scrollable {overflow-x: hidden;}
 
-::-webkit-scrollbar {
-    width: 5px;
-}
-::-webkit-scrollbar-thumb {
-    background-color: rgb(73, 73, 243);
-}
-
-.ks-scrollable {
-    overflow-x: hidden;
-}
-
-.jspTrack {
-    background-color: grey;
-}
+.jspTrack {background-color: grey;}
 
 * {
     user-select: none;
     -webkit-user-drag: none;
 }
 
-.ks-message {
-    user-select: text;
-}
+.ks-message {user-select: text;}
 
-a {
-    text-decoration: none !important;
-}
+a {text-decoration: none !important;}
 
-
-/* .jspContainer{
-        background-color: rgba(202, 221, 236, 0.904);
-    } */
-.ks-body {
-    background-color: white;
-}
+.ks-body {background-color: white;}
 
 .tesModal {
     display: flex;
@@ -1459,13 +711,9 @@ a {
     cursor: pointer;
 }
 
-.modalAvatar:hover > .editAvatar {
-    z-index: 20;
-}
+.modalAvatar:hover > .editAvatar {z-index: 20;}
 
-.ks-discussions .ks-avatar {
-    cursor: pointer;
-}
+.ks-discussions .ks-avatar {cursor: pointer;}
 
 .ks-tes-datetime {
     position: absolute;
@@ -1473,23 +721,13 @@ a {
     right: 0;
 }
 
-.tes {
-    position: relative;
-    width: 100%;
-}
+.tes {position: relative;width: 100%;}
 
-.ks-datetime.more {
-    opacity: 0;
-}
+.ks-datetime.more {opacity: 0}
 
-.ks-body:hover > .ks-header .ks-datetime.more {
-    opacity: 1;
-    cursor: pointer;
-}
+.ks-body:hover > .ks-header .ks-datetime.more {opacity: 1;cursor: pointer;}
 
-a {
-    cursor: pointer;
-}
+a { cursor: pointer;}
 
 .search-bar {
     width: 80vh;
@@ -1502,18 +740,7 @@ a {
     position: relative;
     transition: all 0.3s ease;
 }
-.modalAvatar input {
-    display: none;
-}
-
-/* .modalAvatar img {
-    object-fit: cover;
-    width: 80%;
-    aspect-ratio: 1/1;
-    box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.35);
-    border-radius: 50%;
-    z-index: 0;
-} */
+.modalAvatar input {display: none;}
 
 .modalAvatar .label {
     cursor: pointer;
@@ -1542,7 +769,6 @@ a {
   }
 
 .ks-discussions .bawah, .ks-discussions .atas{
-
     width: 100%;
     display: flex;
     justify-content: center;
@@ -1551,9 +777,6 @@ a {
 }
 
 .ks-discussions .bawah a, .ks-discussions .atas a{
-    /* border-top: solid .1px rgba(0, 0, 0, 0.808);
-    border-bottom: solid .1px rgba(0, 0, 0, 0.808); */
-
     width: 100%;
     aspect-ratio: 10/8;
     display: flex;
@@ -1561,20 +784,11 @@ a {
     justify-content: center;
 }
 
-.ks-discussions .bawah a:hover, .ks-discussions .atas a:hover{
-    /* background-color: white; */
-    box-shadow: inset 0 0 2px black;
-}
+.ks-discussions .bawah a:hover, .ks-discussions .atas a:hover{ box-shadow: inset 0 0 2px black; }
 
-ul.ks-items {
-    display:flex;
-    flex-direction:column-reverse;
-}
+ul.ks-items { display:flex; flex-direction:column-reverse;}
 
-.ks-item{
-    margin-top: 0 !important;
-    margin-bottom: 4px !important;
-}
+.ks-item{ margin-top: 0 !important; margin-bottom: 4px !important;}
 
 .search{left: 30px;}
 
@@ -1584,6 +798,4 @@ ul.ks-items {
 
 .btn.confirm:hover{background-color: green;}
 
-input.form-control{
-    box-shadow: none !important;
-}
+input.form-control{box-shadow: none !important;}

@@ -15,6 +15,7 @@
                 <div class="ks-messenger">
                     <div class="ks-discussions">
                         <div class="atas">
+
                             <a href="/" data-toggle="tooltip" data-placement="right" title="Back"><i
                                     class="fas fa-chevron-left" style="color: #ffffff;"></i></a>
                         </div>
@@ -72,7 +73,7 @@
                                                 style="text-align:center; width:100%; color:rgba(75, 75, 75, 0.877);">there
                                                 is no message</h3>
                                         @endif
-                                        <div class="ks-items" style="display:flex; flex-direction:row; flex-wrap:wrap;" >
+                                        <div class="ks-items" style="" >
 
                                             @foreach ($reportedMessages as $message)
                                                 {{-- <li class="ks-item {{ Auth::user()->name == $message->Message->User->name ? 'ks-from' : 'ks-self' }}">
@@ -116,7 +117,6 @@
                                             </li> --}}
                                                 <div class="card" style="width:40%">
                                                     <div class="card-body">
-                                                        {{-- <h5 class="card-title">Special title treatment</h5> --}}
                                                         <p class="card-text">{{ $message->Message->message }}</p>
                                                         <p class="card-text">{{ $message->Message->User->name }}</p>
                                                         <div class="text-disabled">reported by: {{ $message->Pelapor}}</div>
