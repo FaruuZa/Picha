@@ -4,9 +4,8 @@ chat.scrollTop = chat.scrollHeight
 
 
 $('#theirModal').on('show.bs.modal', function (event) {
-    // debugger
-    var button = $(event.relatedTarget) // Button that triggered the modal
-    var tes = button.data('whatever') // Extract info from data-* attributes
+    var button = $(event.relatedTarget)
+    var tes = button.data('whatever')
     var user = tes.split('|')
     var name = user[0]
     var image = user[1]
@@ -21,14 +20,14 @@ $('#theirModal').on('show.bs.modal', function (event) {
 
 
 $('#deleteModal').on('show.bs.modal', function (event) {
-    var button = $(event.relatedTarget) // Button that triggered the modal
-    var tes = button.data('whatever') // Extract info from data-* attributes
+    var button = $(event.relatedTarget)
+    var tes = button.data('whatever')
     var modal = $(this)
     modal.find('.modal-body .id').val(tes)
 })
 
 $('#reportModal').on('show.bs.modal', function (event) {
-    var button = $(event.relatedTarget) // Button that triggered the modal
+    var button = $(event.relatedTarget)
     var apa = button.data('whatever')
     var id = button.data('id')
     var modal = $(this)
@@ -42,8 +41,8 @@ $('#reportModal').on('show.bs.modal', function (event) {
 })
 
 $('#editModal').on('show.bs.modal', function (event) {
-    var button = $(event.relatedTarget) // Button that triggered the modal
-    var id = button.data('whatever') // Extract info from data-* attributes
+    var button = $(event.relatedTarget)
+    var id = button.data('whatever')
     var tes = button.parents('.ks-item .ks-body')
     var text = tes.find('.ks-message').text()
     var modal = $(this)
@@ -57,13 +56,6 @@ function copyMessage(e){
   navigator.clipboard.writeText(message);
   $('#copyToast').toast('show')
 }
-
-// function copyMessage(e){
-//   var f = e.parents('.ks-item .ks-body');
-//   var message = f.find('.ks-message').text()
-//   navigator.clipboard.writeText(message);
-//   $('#copyToast').toast('show')
-// }
 
 $('#kirimInput').change(function (event){
     var value = $(this).val();
