@@ -31,7 +31,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/del', [ChatController::class, 'deleteMessage']);
     Route::post('/edit', [ChatController::class, 'editMessage']);
     Route::post('/change', [ChatController::class, 'changePP']);
-    Route::post('/report', [ChatController::class, 'reported']);
+    Route::post('/report', [ChatController::class, 'report']);
 
     Route::middleware('role:moderator,admin')->group(function () {
         Route::get('/mods', [ModsController::class, 'index']);

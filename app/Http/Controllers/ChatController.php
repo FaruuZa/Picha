@@ -68,11 +68,20 @@ class ChatController extends Controller
         return back();
     }
 
-    public function reported(Request $request){
-        Report::create([
-            'message_id' => $request['id'],
-            'user_id' => Auth::user()->id
-        ]);
+    public function report(Request $request){
+        if ($request->apa == 'user') {
+            Report::create([
+                'user_id' => $request['id'],
+                'reason' => $request['reason'],
+                'reporter' => Auth::user()->name
+            ]);
+        }elseif($request->apa == 'pesan'){
+            Report::create([
+                'message_id' => $request['id'],
+                'reason' => $request['reason'],
+                'reporter' => Auth::user()->name
+            ]);
+        }
         return back()->with('reported', 'that message has been reported');
     }
 }

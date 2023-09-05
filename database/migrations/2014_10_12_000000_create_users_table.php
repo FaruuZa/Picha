@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('image')->default('dummy.jpg');
             $table->enum('role' , ['user','admin', 'moderator'])->default('user');
-            $table->timestamp('email_verified_at')->nullable();
+            $table->enum('status', ['active', 'banned'])->default('active');
             $table->rememberToken();
             $table->timestamps();
         });

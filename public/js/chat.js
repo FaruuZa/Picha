@@ -4,15 +4,18 @@ chat.scrollTop = chat.scrollHeight
 
 
 $('#theirModal').on('show.bs.modal', function (event) {
+    // debugger
     var button = $(event.relatedTarget) // Button that triggered the modal
     var tes = button.data('whatever') // Extract info from data-* attributes
     var user = tes.split('|')
     var name = user[0]
     var image = user[1]
     var created = user[2]
+    var id = button.data('id')
     var modal = $(this)
     modal.find('.modal-body h1').text(name)
     modal.find('.modal-body .modalAvatar img').attr('src', '/img/' + image)
+    modal.find('.modal-header .trigger').data('id', id)
     modal.find('.modal-body p').text('created at: ' + created)
   })
 
@@ -23,11 +26,19 @@ $('#deleteModal').on('show.bs.modal', function (event) {
     var modal = $(this)
     modal.find('.modal-body .id').val(tes)
 })
+
 $('#reportModal').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget) // Button that triggered the modal
-    var tes = button.data('whatever') // Extract info from data-* attributes
+    var apa = button.data('whatever')
+    var id = button.data('id')
     var modal = $(this)
-    modal.find('.modal-body .id').val(tes)
+    if (apa == 'message') {
+        modal.find('.modal-title').text('laporkan pesan')
+    }else if(apa == 'user'){
+        modal.find('.modal-title').text('laporkan user')
+    }
+    modal.find('.modal-body .id').val(id)
+    modal.find('.modal-body .apa').val(apa)
 })
 
 $('#editModal').on('show.bs.modal', function (event) {
