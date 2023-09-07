@@ -30,7 +30,6 @@ class AuthController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'unique' => $request->name . date('mdhis')
         ]);
 
         return redirect('/login')->with('RegisterDone', 'Your Account has been registered');
@@ -39,13 +38,12 @@ class AuthController extends Controller
 
         $credentials = $request->validate([
             'email' => 'required|email:dns',
-            'password'=>'required'
+            'password' =>'required'
         ]);
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
             return redirect()->intended('/');
         }
-
         return back()->with('LoginError', 'Login Failed!');
     }
 

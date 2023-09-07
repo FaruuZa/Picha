@@ -12,28 +12,33 @@ use Illuminate\Support\Str;
 
 class ChatController extends Controller
 {
-    public function index($room_id, Request $request)
+    public function index(Room $Room, Request $request)
     {
-        $room = Room::where('id', '=', $room_id)->first();
-
-        if ($room) {
+        if ($Room) {
             $isMember = false;
-            dd($room->member);
+            $members = explode('|', $Room->member);
+            if (in_array(Auth::user()->email, $members)) {
+                $isMember = true;
+            }else{
+                $isMember = false;
+            }
             if ($isMember) {
                 $searched = $request->query('search');
                 if (Str::length($searched) > 0) {
-                    $messages = Message::with('User')->where([['room_id', '=', $room_id], ['message', 'like', '%' . $searched . '%']])->latest()->paginate(10);
+                    $messages = Message::with('User')->where([['room_id', '=', $Room->id], ['message', 'like', '%' . $searched . '%']])->latest()->paginate(10);
                 } else {
-                    $messages = Message::with('User')->where([['room_id', '=', $room_id]])->latest()->paginate(10);
+                    $messages = Message::with('User')->where([['room_id', '=', $Room->id]])->latest()->paginate(10);
                 }
                 $messages->lastPage();
                 $path = $request->path();
-                return view('chat.index', compact(['messages', 'searched', 'path']));
+                return view('chat.index', compact(['messages', 'searched', 'path', 'Room']));
+            }else{
+                return redirect('joinRoom');
             }
         }
-        return view('welcome');
+        return redirect('/');
     }
-    public function sendMessage($room_id, Request $request)
+    public function sendMessage(Room $Room, Request $request)
     {
         $Vmessage = $request->validate([
             'message' => 'required'
@@ -41,7 +46,7 @@ class ChatController extends Controller
         Message::create([
             'user_id' => Auth::user()->id,
             'message' => $Vmessage['message'],
-            'room_id' => $room_id
+            'room_id' => $Room->id
         ]);
         return back();
     }

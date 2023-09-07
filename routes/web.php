@@ -30,8 +30,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/', function(){
         return view('welcome');
     });
-    Route::get('/chat/{room_id}', [ChatController::class, 'index'])->name('home');
-    Route::post('/chat/{room_id}', [ChatController::class, 'sendMessage']);
+    Route::get('/chat/{Room}', [ChatController::class, 'index'])->name('home');
+    Route::post('/chat/{Room}', [ChatController::class, 'sendMessage']);
     Route::post('/del', [ChatController::class, 'deleteMessage']);
     Route::post('/edit', [ChatController::class, 'editMessage']);
     Route::post('/change', [ChatController::class, 'changePP']);
@@ -40,6 +40,10 @@ Route::middleware(['auth'])->group(function () {
         return view('chat.rooms');
     });
     Route::post('/createRoom', [RoomController::class, 'createRoom']);
+    Route::get('/joinRoom', function(){
+        return view('chat.joinRoom');
+    });
+    Route::post('/joinRoom', [RoomController::class, 'joinRoom']);
 
     Route::middleware('role:moderator,admin')->group(function () {
         Route::get('/mods', [ModsController::class, 'index']);

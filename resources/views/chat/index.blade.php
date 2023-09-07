@@ -28,7 +28,7 @@
                 <div class="ks-messages ks-messenger__messages">
                     <div class="ks-header">
                         <div class="ks-description">
-                            <div class="ks-name">Picha</div>
+                            <div class="ks-name">{{$Room->name}}</div>
                         </div>
                         <div class="ks-controls">
                             <div class="dropdown">

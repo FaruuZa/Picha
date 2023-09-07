@@ -11,7 +11,12 @@ class Room extends Model
 
     protected $guarded = ['id'];
 
-    public function Messages(){
+    public function Messages()
+    {
         return $this->hasMany(Message::class);
+    }
+    public function getRouteKeyName()
+    {
+        return 'code';
     }
 }

@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('image')->default('dummy.jpg');
             $table->enum('role' , ['user','admin', 'moderator'])->default('user');
             $table->enum('status', ['active', 'banned'])->default('active');
-            $table->string('unique');
             $table->rememberToken();
             $table->timestamps();
         });
