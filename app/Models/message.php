@@ -13,4 +13,7 @@ class Message extends Model
     public function User(){
         return $this->belongsTo(User::class, 'user_id');
     }
+    public function Room(){
+        return $this->belongsTo(User::class, 'room_id');
+    }
 }

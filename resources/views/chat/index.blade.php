@@ -14,21 +14,21 @@
             <div class="ks-messenger">
                 <div class="ks-discussions">
                     <div class="atas">
-                        <div class="ks-avatar ks-online " data-toggle="modal" data-target="#myModal" data-whatever="{{ Auth::user()->name }}|{{ Auth::user()->image }}|{{ Auth::user()->created_at }}"><img src="{{ asset('/img/' . Auth::user()->image) }}" width="36" height="36" class="rounded-circle"></div>
                     </div>
                     <div class="bawah">
                         @if (Auth::user()->role != 'user')
-
                         <a href="#" data-toggle="tooltip" data-placement="right" title="Mods Tools"><i class="fas fa-tools fa-lg" style="color: #ffffff;"></i></a>
                         @endif
                         <a data-toggle="modal" data-target="#logoutModal" data-toggle="tooltip" data-placement="right" title="Logout"><i class="fas fa-sign-out-alt fa-lg" style="color: white"></i></a>
+                        <a href=""><i class="fas fa-cog fa-lg" style="color: #ffffff;"></i></a>
+                        <a class="ks-avatar ks-online mb-3" data-toggle="modal" data-target="#myModal" data-whatever="{{ Auth::user()->name }}|{{ Auth::user()->image }}|{{ Auth::user()->created_at }}"><img src="{{ asset('/img/' . Auth::user()->image) }}" width="30" height="30" class="rounded-circle"></a>
                     </div>
                 </div>
 
                 <div class="ks-messages ks-messenger__messages">
                     <div class="ks-header">
                         <div class="ks-description">
-                            <div class="ks-name">Picha</div>
+                            <div class="ks-name">{{$Room->name}}</div>
                         </div>
                         <div class="ks-controls">
                             <div class="dropdown">
@@ -41,7 +41,7 @@
                                             <input type="text" class="form-control" placeholder="search message" name="search" aria-label="Recipient's username" aria-describedby="button-addon2" autocomplete="off" autofocus value="{{ $searched != '' ? $searched : '' }}">
                                             <div class="input-group-append">
                                                 @if ($searched)
-                                                <a href="/" class="btn btn-outline-secondary cancel" id="button-addon2"><i class="fas fa-times"></i></a>
+                                                <a href="/{{$path}}" class="btn btn-outline-secondary cancel" id="button-addon2"><i class="fas fa-times"></i></a>
                                                 @endif
                                                 <button class="btn btn-outline-secondary confirm" type="submit" id="button-addon2"><i class="fas fa-check"></i></button>
                                             </div>
@@ -110,7 +110,7 @@
                             </div>
                         </div>
                     </div>
-                    <form action="/" class="ks-footer" method="POST">
+                    <form action="" class="ks-footer" method="POST">
                         @csrf
                         <input type="text" class="form-control" placeholder="Ketikkan pesan" name="message" autofocus autocomplete="off" maxlength="141" id="kirimInput">
                         <div class="ks-controls" style="width: fit-content;">
