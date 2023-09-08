@@ -32,6 +32,8 @@ Route::middleware(['auth'])->group(function () {
     });
     Route::get('/chat/{Room}', [ChatController::class, 'index'])->name('home');
     Route::post('/chat/{Room}', [ChatController::class, 'sendMessage']);
+    Route::get('/chat/messages/{Room}', [ChatController::class, 'showMessages']);
+
     Route::post('/del', [ChatController::class, 'deleteMessage']);
     Route::post('/edit', [ChatController::class, 'editMessage']);
     Route::post('/change', [ChatController::class, 'changePP']);

@@ -41,7 +41,7 @@ class RoomController extends Controller
             'member' => Auth::user()->email,
             'owner' => Auth::user()->id,
             'code' => $code,
-            'password' => Hash::make($request->password)
+            'password' => strlen($request->password) > 0 ? Hash::make($request->password) : ''
         ]);
         return redirect('/chat/'.$code);
     }
@@ -64,7 +64,7 @@ class RoomController extends Controller
                     if(Hash::check($validated['password'], $tujuan->password)){
                         array_push($members, Auth::user()->email);
                     }else{
-                        return back()->withErrors('wrongPass', 'wrong password');
+                        return back()->with('errPass', 'password salah');
                     }
 
                 } else {
@@ -77,6 +77,6 @@ class RoomController extends Controller
             }
             return redirect('/chat/'. $request->code);
         }
-        return back()->withErrors('noRoom', 'Room tidak ditemukan');
+        return back()->with('noRoom', 'Room tidak ditemukan');
     }
 }

@@ -19,7 +19,7 @@ class ChatController extends Controller
             $members = explode('|', $Room->member);
             if (in_array(Auth::user()->email, $members)) {
                 $isMember = true;
-            }else{
+            } else {
                 $isMember = false;
             }
             if ($isMember) {
@@ -32,11 +32,17 @@ class ChatController extends Controller
                 $messages->lastPage();
                 $path = $request->path();
                 return view('chat.index', compact(['messages', 'searched', 'path', 'Room']));
-            }else{
+            } else {
                 return redirect('joinRoom');
             }
         }
         return redirect('/');
+    }
+    public function showMessages(Room $Room)
+    {
+        $messages = Message::with('User')->where([['room_id', '=', $Room->id]])->latest()->paginate(10);
+        $messages->lastPage();
+        return view('chat.messages', compact(['messages', 'Room']));
     }
     public function sendMessage(Room $Room, Request $request)
     {
