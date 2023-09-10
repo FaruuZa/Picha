@@ -56,7 +56,9 @@
                     <div class="ks-body ks-scrollable jspScrollable" data-auto-height="" data-reduce-height=".ks-footer" data-fix-height="32" style="height: 480px; overflow-Y: scroll; padding: 0px; width: 100%;" tabindex="0">
                         <div class="jspContainer" style="width: 100%; height: auto;">
                             <div class="jspPane" style="padding: 0px; top: 0px; width: 100%;">
-                                @livewire('ShowMessages', ['roomId'=>$Room->id])
+
+                                @livewire('ShowMessages', ['Room'=> $Room])
+
                             </div>
                             <div class="jspVerticalBar">
                                 <div class="jspCap jspCapTop"></div>

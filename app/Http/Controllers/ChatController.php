@@ -15,6 +15,7 @@ class ChatController extends Controller
     public function index(Room $Room, Request $request)
     {
         if ($Room) {
+            // dd($Room);
             $isMember = false;
             $members = explode('|', $Room->member);
             if (in_array(Auth::user()->email, $members)) {

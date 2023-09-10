@@ -1,4 +1,4 @@
-<ul class="ks-items">
+<ul class="ks-items" wire:poll.1000ms>
     @if ($messages->count() == 0)
     <h3 class="disabled" style="text-align:center; width:100%; color:rgba(75, 75, 75, 0.877);">Tidak ada pesan</h3>
     @endif
