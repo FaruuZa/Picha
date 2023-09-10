@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('style')
+@livewireStyles
 <link rel="stylesheet" href="{{ asset('css/chat.css') }}">
 @endsection
 
@@ -8,7 +9,7 @@
 <div class="container">
     @include('chat.partials.toasts')
     @include('chat.partials.modals')
-    <input type="text" id="kodeRoom" readonly value="{{$Room->code}}">
+    <input type="text" id="kodeRoom" readonly value="{{$Room->code}}" hidden>
     <div class="ks-page-content">
         <div class="ks-page-content-body">
             <div class="ks-messenger">
@@ -54,8 +55,8 @@
                     </div>
                     <div class="ks-body ks-scrollable jspScrollable" data-auto-height="" data-reduce-height=".ks-footer" data-fix-height="32" style="height: 480px; overflow-Y: scroll; padding: 0px; width: 100%;" tabindex="0">
                         <div class="jspContainer" style="width: 100%; height: auto;">
-                            <div class="jspPane" style="padding: 0px; top: 0px; width: 100%;" id="messagesContainer">
-
+                            <div class="jspPane" style="padding: 0px; top: 0px; width: 100%;">
+                                @livewire('ShowMessages', ['roomId'=>$Room->id])
                             </div>
                             <div class="jspVerticalBar">
                                 <div class="jspCap jspCapTop"></div>
@@ -69,14 +70,7 @@
                             </div>
                         </div>
                     </div>
-                    <div onclick="showMessages()">aaa</div>
-                    <form action="" class="ks-footer" method="POST">
-                        @csrf
-                        <input type="text" class="form-control" placeholder="Ketikkan pesan" name="message" autofocus autocomplete="off" maxlength="141" id="kirimInput">
-                        <div class="ks-controls" style="width: fit-content;">
-                            <button type="submit" class="btn btn-primary" id="kirimButton" disabled><i class="fas fa-paper-plane" style="color: #ffffff;"></i></button>
-                        </div>
-                    </form>
+                    @livewire('SendMessage', ['roomId' => $Room->id])
                 </div>
             </div>
         </div>
@@ -85,5 +79,6 @@
 @endsection
 
 @section('script')
+@livewireScripts
 <script src="{{ asset('js/chat.js') }}"></script>
 @endsection

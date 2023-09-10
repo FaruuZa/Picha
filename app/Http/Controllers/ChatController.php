@@ -31,6 +31,7 @@ class ChatController extends Controller
                 }
                 $messages->lastPage();
                 $path = $request->path();
+                // dd($path);
                 return view('chat.index', compact(['messages', 'searched', 'path', 'Room']));
             } else {
                 return redirect('joinRoom');
