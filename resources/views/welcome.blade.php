@@ -1,10 +1,11 @@
 @extends('layouts.master')
+
+@section('style')
+<link rel="stylesheet" href="{{asset('css/lobby.css')}}">
+@endsection
+
 @section('container')
-<form action="/logout" method="GET">
-    <div class="modal-content ">
-        {{-- <div class="modal-header">
-        </div> --}}
-        <!-- Modal body -->
+{{-- <form action="/logout" method="GET">
         <div class="modal-body" style="padding-bottom: 0;">
             <h5 class="modal-title mb-1" id="staticBackdropLabel">keluar</h5>
             <p>anda yakin ingin keluar?</p>
@@ -16,8 +17,32 @@
             </div>
 
         </div>
-        {{-- <div class="modal-footer">
-        </div> --}}
+</form> --}}
+
+<div class="container">
+    <div class="profile">
+        <div class="atas">
+            <div class="img"></div>
+        </div>
+        <div class="bawah">
+
+        </div>
     </div>
-</form>
+    <div class="joined">
+        <div class="atas">
+            Joined Room
+        </div>
+        <div class="bawah">
+            <div class="scrollable">
+                <div class="room">
+                    <div class="profil-group">
+                    </div>
+                    <div class="nama">
+                        League Of Legend<span class="kode">#kodeRoom</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection

@@ -1,0 +1,87 @@
+*{
+    /* outline: solid 1px red; */
+    color: red;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container{
+    height:80%;
+    display:flex;
+    flex-direction: row;
+    gap: 15px;
+    align-items: center;
+    background-color: black;
+}
+
+.profile{
+    width: 35%;
+    height: 98.5%;
+}
+.joined{
+    width: 65%;
+    height: 98.5%;
+}
+
+.atas, .bawah{
+    width: 100%;
+}
+
+.profile .atas{
+    height: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.profile .atas .img{
+    height: 90%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+}
+.profile .bawah{
+    height: 55%;
+}
+.joined .bawah{
+    height: 91.5%;
+    overflow-y: scroll;
+}
+.joined .scrollable{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 10px;
+}
+.joined .bawah .room{
+    width: 90%;
+    height: 70px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap:10px;
+    padding: 0 10px 0 10px;
+}
+
+.joined .bawah .room .profil-group{
+    aspect-ratio: 1/1;
+    height: 100%;
+    border-radius: 50%;
+
+}
+
+.joined .bawah .room .nama{
+    font-weight: 400;
+    padding: 0 10px 0 10px;
+    font-size: 20px;
+}
+.joined .bawah .room .nama .kode{
+    opacity: .6;
+}
+.joined .atas{
+    height: 8.5%;
+}
