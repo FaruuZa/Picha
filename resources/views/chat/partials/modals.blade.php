@@ -11,11 +11,6 @@
             </div>
             <!-- Modal body -->
             <div class="modal-body tesModal">
-                <!-- <div class="modalAvatar">
-                    {{-- <input type="file" name="avatar" id="avatar" class="editAvatar"> --}}
-                    <div class="editAvatar"><i class="fas fa-camera fa-lg" style="color: #ffffff;"></i></div>
-                    <img src="{{ asset('/img/' . Auth::user()->image) }}" alt="">
-                </div> -->
                 <div class="modalAvatar">
                     <label class="label" for="file">
                         <span class="glyphicon glyphicon-camera"></span>

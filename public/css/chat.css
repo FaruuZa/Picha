@@ -714,7 +714,7 @@ a {text-decoration: none !important;}
 .modalAvatar:hover > .editAvatar {z-index: 20;}
 
 .ks-discussions .ks-avatar {cursor: pointer;}
- 
+
 .ks-tes-datetime {
     position: absolute;
     top: -10px;

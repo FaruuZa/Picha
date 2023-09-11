@@ -84,6 +84,6 @@ var loadFile = function () {
         })
   }
 
-  $('document').ready(()=>{
-    setInterval(showMessages, 100);
-  })
+//   $('document').ready(()=>{
+//     setInterval(showMessages, 100);
+//   })
