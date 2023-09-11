@@ -1,6 +1,6 @@
 *{
     /* outline: solid 1px red; */
-    color: red;
+    /* color: red; */
 }
 
 body{
@@ -8,24 +8,40 @@ body{
     align-items: center;
     justify-content: center;
     height: 100vh;
+    background-color: #bfc0ff;
 }
 
 .container{
-    height:80%;
+    height:90%;
     display:flex;
     flex-direction: row;
     gap: 15px;
     align-items: center;
-    background-color: black;
+    /* background-color: black; */
 }
 
 .profile{
-    width: 35%;
-    height: 98.5%;
+    width: 30%;
+    height: 98%;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #d8d4ff;
+}
+.profile .img{
+    overflow: hidden;
+}
+.profile img{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
 }
 .joined{
-    width: 65%;
-    height: 98.5%;
+    width: 70%;
+    height: 98%;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #d8d4ff;
+
 }
 
 .atas, .bawah{
@@ -33,8 +49,9 @@ body{
 }
 
 .profile .atas{
-    height: 45%;
+    height: 65%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -44,7 +61,26 @@ body{
     border-radius: 50%;
 }
 .profile .bawah{
-    height: 55%;
+    height: 35%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.profile .bawah .circle{
+    /* width: 50px; */
+    width: calc(100% / 5);
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: #8284f8d7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.profile .atas h2{
+    margin-top: 10px;
 }
 .joined .bawah{
     height: 91.5%;
@@ -56,6 +92,7 @@ body{
     align-items: center;
     padding-bottom: 10px;
 }
+
 .joined .bawah .room{
     width: 90%;
     height: 70px;
@@ -65,23 +102,98 @@ body{
     align-items: center;
     gap:10px;
     padding: 0 10px 0 10px;
+    border-radius: 10px;
+    background-color: #8284f8d7;
+    color: white;
+    text-decoration: none;
 }
 
+.joined .bawah .room:hover, .profile .bawah .circle:hover{
+    background-color: #a4a6fdd7;
+}
 .joined .bawah .room .profil-group{
     aspect-ratio: 1/1;
-    height: 100%;
+    height: 85%;
     border-radius: 50%;
-
+    background-color: rgb(115, 115, 255);
 }
 
 .joined .bawah .room .nama{
+    outline: none;
     font-weight: 400;
     padding: 0 10px 0 10px;
     font-size: 20px;
 }
 .joined .bawah .room .nama .kode{
+    outline: none;
     opacity: .6;
+    font-size: 15px;
 }
 .joined .atas{
     height: 8.5%;
 }
+
+.avatar {
+    margin: 10px;
+    width: 230px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    object-fit: cover;
+    overflow: hidden;
+    position: relative;
+}
+.avatar img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+.avatar .editAvatar {
+    position: absolute;
+    width: 100%;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(94, 94, 94, 0.473);
+    z-index: -1;
+    cursor: pointer;
+}
+
+.avatar:hover > .editAvatar {z-index: 20;}
+
+.avatar {
+    color: transparent;
+    transition: all 0.3s ease;
+    position: relative;
+    transition: all 0.3s ease;
+}
+.avatar input {display: none;}
+
+.avatar .label {
+    cursor: pointer;
+    height: 100%;
+    aspect-ratio: 1/1;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+    /* color: rgba(240, 248, 255, 0); */
+}
+
+.avatar span {
+    display: inline-flex;
+    padding: .2em;
+    height: 2em;
+  }
+
+.avatar:hover > .label {
+    background-color: rgba(80, 80, 80, 0.8);
+    z-index: 10000;
+    color: rgb(255, 255, 255);
+    transition: background-color .2s ease-in-out;
+    border-radius: 50%;
+    margin-bottom: 0;
+  }
+

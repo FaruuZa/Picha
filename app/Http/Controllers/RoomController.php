@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Hash;
 
 class RoomController extends Controller
 {
+    public function index(){
+        $joinedRooms = Room::where('member', 'LIKE', '%' . Auth::user()->email .'%')->get();
+        // dd($joinedRooms);
+        return view('welcome', compact(['joinedRooms']));
+    }
+
     public function generateUniqueCode()
     {
 
