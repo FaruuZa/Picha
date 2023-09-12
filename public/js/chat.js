@@ -74,7 +74,8 @@ var loadFile = function () {
     image.attr('src', URL.createObjectURL(input.prop('files')[0]))
     button.removeClass("btn-primary").addClass("btn-warning").attr('type', 'submit').attr('data-dismiss', '');
     button.text("edit")
-  };
+};
+
 
   function showMessages(){
     var kode = $('#kodeRoom').val()

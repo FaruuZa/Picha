@@ -77,16 +77,18 @@ class ChatController extends Controller
         return back()->with('edited', 'message edited');
     }
 
-    public function changePP(Request $request)
+    public function editProfile(Request $request)
     {
         $request->validate([
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'name' => 'required'
         ]);
         $imageName = 'user/' . Auth::user()->id . Auth::user()->name . '.' . $request->image->extension();
         $request->image->move(public_path('img/user'), $imageName);
 
         User::where('id', Auth::user()->id)->update([
-            'image' => $imageName
+            'image' => $imageName,
+            'name' => $request->name
         ]);
         return back();
     }

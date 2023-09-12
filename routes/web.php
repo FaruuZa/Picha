@@ -26,7 +26,10 @@ Route::middleware(['guest'])->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/logout', [AuthController::class, 'logout']);
+    Route::post('/logout', [AuthController::class, 'logout']);
+    Route::get('/logout', function(){
+        return back();
+    });
     Route::get('/', [RoomController::class, 'index']);
     Route::get('/chat/{Room}', [ChatController::class, 'index'])->name('home');
     Route::post('/chat/{Room}', [ChatController::class, 'sendMessage']);
@@ -34,15 +37,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('/del', [ChatController::class, 'deleteMessage']);
     Route::post('/edit', [ChatController::class, 'editMessage']);
-    Route::post('/change', [ChatController::class, 'changePP']);
-    Route::post('/report', [ChatController::class, 'report']);
-    Route::get('/createRoom', function(){
-        return view('chat.rooms');
-    });
+    Route::post('/change', [ChatController::class, 'editProfile']);
+    Route::post('/report', [ChatController::class, 'report']);  
     Route::post('/createRoom', [RoomController::class, 'createRoom']);
-    Route::get('/joinRoom', function(){
-        return view('chat.joinRoom');
-    });
     Route::post('/joinRoom', [RoomController::class, 'joinRoom']);
 
     Route::middleware('role:moderator,admin')->group(function () {

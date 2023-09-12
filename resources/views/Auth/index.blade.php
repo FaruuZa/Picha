@@ -42,8 +42,8 @@
                     </div>
 
                     <div class="form-label-group mb-5">
-                        <input type="password" id="inputPassword" name="password"
-                            class="form-control @error('password')is-invalid @enderror" placeholder="Password" required>
+                        <input type="password" name="password"
+                            class="form-control inputPassword @error('password')is-invalid @enderror" placeholder="Password" required>
                         <label for="inputPassword">Password</label>
                         <i class="fas fa-eye" onclick="view(this)"></i>
                         @error('password')
@@ -92,8 +92,8 @@
                     </div>
 
                     <div class="form-label-group mb-5">
-                        <input type="password" id="inputPassword" name="password"
-                            class="form-control @error('password')is-invalid @enderror" placeholder="Password" required>
+                        <input type="password" name="password"
+                            class="form-control inputPassword @error('password')is-invalid @enderror" placeholder="Password" required>
                         <label for="inputPassword">Password</label>
                         <i class="fas fa-eye" onclick="view(this)"></i>
 

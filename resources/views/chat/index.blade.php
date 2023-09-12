@@ -21,8 +21,6 @@
                         @if (Auth::user()->role != 'user')
                         <a href="#" data-toggle="tooltip" data-placement="right" title="Mods Tools"><i class="fas fa-tools fa-lg" style="color: #ffffff;"></i></a>
                         @endif
-                        <a data-toggle="modal" data-target="#logoutModal" data-toggle="tooltip" data-placement="right" title="Logout"><i class="fas fa-sign-out-alt fa-lg" style="color: white"></i></a>
-                        <a class="ks-avatar ks-online" data-toggle="modal" data-target="#myModal" data-whatever="{{ Auth::user()->name }}|{{ Auth::user()->image }}|{{ Auth::user()->created_at }}"><img src="{{ asset('/img/' . Auth::user()->image) }}" width="30" height="30" class="rounded-circle"></a>
                         <a href="" class="mb-3"><i class="fas fa-cog fa-lg" style="color: #ffffff;"></i></a>
                     </div>
                 </div>

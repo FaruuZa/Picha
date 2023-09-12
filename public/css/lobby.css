@@ -1,6 +1,114 @@
 *{
     /* outline: solid 1px red; */
     /* color: red; */
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+::-webkit-scrollbar{
+    background-color: white;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: rgba(145, 138, 248, 0.664);
+    border-radius: 2px;
+}
+
+.form-signin {
+    width: 100%;
+    max-width: 420px;
+    padding: 15px;
+    margin: auto;
+}
+
+.form-label-group {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.form-label-group input,
+.form-label-group label {
+    height: 3.125rem;
+    padding: 0.75rem;
+}
+
+.form-label-group label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    margin-bottom: 0; /* Override default `<label>` margin */
+    line-height: 1.5;
+    color: #495057;
+    pointer-events: none;
+    cursor: text; /* Match the input under the label */
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    transition: all 0.1s ease-in-out;
+}
+
+.form-label-group input::-webkit-input-placeholder {
+    color: transparent;
+}
+
+.form-label-group input::-moz-placeholder {
+    color: transparent;
+}
+
+.form-label-group input:-ms-input-placeholder {
+    color: transparent;
+}
+
+.form-label-group input::-ms-input-placeholder {
+    color: transparent;
+}
+
+.form-label-group input::placeholder {
+    color: transparent;
+}
+
+.form-label-group input:not(:-moz-placeholder-shown) {
+    padding-top: 1.25rem;
+    padding-bottom: 0.25rem;
+}
+
+.form-label-group input:not(:-ms-input-placeholder) {
+    padding-top: 1.25rem;
+    padding-bottom: 0.25rem;
+}
+
+.form-label-group input:not(:placeholder-shown) {
+    padding-top: 1.25rem;
+    padding-bottom: 0.25rem;
+}
+
+.form-label-group input:not(:-moz-placeholder-shown) ~ label {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    font-size: 12px;
+    color: #777;
+}
+
+.form-label-group input:not(:-ms-input-placeholder) ~ label {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    font-size: 12px;
+    color: #777;
+}
+
+.form-label-group input:not(:placeholder-shown) ~ label {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    font-size: 12px;
+    color: #777;
+}
+
+.form-label-group input:-webkit-autofill ~ label {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    font-size: 12px;
+    color: #777;
 }
 
 body{
@@ -12,7 +120,7 @@ body{
 }
 
 .container{
-    height:90%;
+    height:95%;
     display:flex;
     flex-direction: row;
     gap: 15px;
@@ -77,13 +185,14 @@ body{
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .profile .atas h2{
     margin-top: 10px;
 }
 .joined .bawah{
-    height: 91.5%;
+    height: 90%;
     overflow-y: scroll;
 }
 .joined .scrollable{
@@ -113,9 +222,11 @@ body{
 }
 .joined .bawah .room .profil-group{
     aspect-ratio: 1/1;
-    height: 85%;
-    border-radius: 50%;
+    height: 70%;
+    border-radius: 20%;
     background-color: rgb(115, 115, 255);
+    overflow: hidden;
+    opacity: .8;
 }
 
 .joined .bawah .room .nama{
@@ -130,10 +241,19 @@ body{
     font-size: 15px;
 }
 .joined .atas{
-    height: 8.5%;
+    height: 10%;
+    /* padding: 10px; */
+    padding-left: 30px;
+    padding-top: 5px;
+    background-color: #b4adf5;
+    display: flex;
+    align-items: center;
 }
 
-.avatar {
+.joined .atas h4{
+    color: rgb(115, 115, 255);
+}
+.modalAvatar {
     margin: 10px;
     width: 230px;
     aspect-ratio: 1/1;
@@ -142,35 +262,21 @@ body{
     overflow: hidden;
     position: relative;
 }
-.avatar img {
+.modalAvatar img {
     width: 100%;
     aspect-ratio: 1/1;
     object-fit: cover;
 }
 
-.avatar .editAvatar {
-    position: absolute;
-    width: 100%;
-    aspect-ratio: 1/1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(94, 94, 94, 0.473);
-    z-index: -1;
-    cursor: pointer;
-}
-
-.avatar:hover > .editAvatar {z-index: 20;}
-
-.avatar {
+.modalAvatar {
     color: transparent;
     transition: all 0.3s ease;
     position: relative;
     transition: all 0.3s ease;
 }
-.avatar input {display: none;}
+.modalAvatar input {display: none;}
 
-.avatar .label {
+.modalAvatar .label {
     cursor: pointer;
     height: 100%;
     aspect-ratio: 1/1;
@@ -182,18 +288,47 @@ body{
     /* color: rgba(240, 248, 255, 0); */
 }
 
-.avatar span {
+.modalAvatar span {
     display: inline-flex;
     padding: .2em;
     height: 2em;
   }
 
-.avatar:hover > .label {
+.modalAvatar:hover > .label {
     background-color: rgba(80, 80, 80, 0.8);
     z-index: 10000;
     color: rgb(255, 255, 255);
     transition: background-color .2s ease-in-out;
     border-radius: 50%;
     margin-bottom: 0;
-  }
+}
 
+.tesModal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.avatar{
+    aspect-ratio: 1/1;
+    width: calc(100% * 2 /3);
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.kontenModal{
+    /* background-color: black; */
+    padding-top: 20px;
+    width: 350px;
+}
+
+.kontenModal input{
+    margin-top: 10px;
+}
+
+.profil-group img{
+    object-fit: cover;
+    width: 100%;
+    aspect-ratio: 1/1;
+}

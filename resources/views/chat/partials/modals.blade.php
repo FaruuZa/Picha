@@ -3,13 +3,7 @@
 <div class="modal fade" id="myModal">
     <form class="modal-dialog" action="/change" method="post" enctype="multipart/form-data">
         @csrf
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <!-- Modal body -->
+        <div class="modal-content kontenModal">
             <div class="modal-body tesModal">
                 <div class="modalAvatar">
                     <label class="label" for="file">
@@ -19,8 +13,7 @@
                     <input id="file" type="file" onchange="loadFile(event)" name="image" />
                     <img src="{{ asset('/img/' . Auth::user()->image) }}" id="output" width="200" />
                 </div>
-                <h1>{{ Auth::user()->name }}</h1>
-                <p class="disabled">Created At: {{ Auth::user()->created_at }}</p>
+                <input type=text value="{{ Auth::user()->name }}" name="name" onchange="gantiNama(this)" class="form-control" />
             </div>
 
             <!-- Modal footer -->
@@ -147,7 +140,8 @@
 
 <div class="modal fade" id="logoutModal">
     <div class="modal-dialog logout-modal">
-        <form action="/logout" method="GET">
+        <form action="/logout" method="POST">
+            @csrf
             <div class="modal-content ">
                 {{-- <div class="modal-header">
                 </div> --}}
@@ -167,5 +161,107 @@
                 </div> --}}
             </div>
         </form>
+    </div>
+</div>
+
+{{-- modal add Room --}}
+
+<div class="modal fade" id="roomModal">
+    <div class="modal-dialog logout-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="home-tab" data-toggle="tab" data-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Find</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="profile-tab" data-toggle="tab" data-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Join</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="contact-tab" data-toggle="tab" data-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Create</button>
+                    </li>
+                </ul>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="tab-content" id="myTabContent">
+                    {{-- find Room --}}
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="text-center mb-5">
+                            <h3 class="h3 mb-3 font-weight-bold">Temukan Room</h3>
+                        </div>
+                    </div>
+                    {{-- join Room --}}
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        <form class="form-signin" method="POST" action="/joinRoom">
+                            @csrf
+                            <div class="text-center mb-5">
+                                <h3 class="h3 mb-3 font-weight-bold">Bergabung dengan Room</h3>
+                            </div>
+                            @if (session()->has('noRoom'))
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <strong>{{ session('noRoom') }}</strong>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            @elseif(session()->has('errPass'))
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <strong>{{ session('errPass') }}</strong>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            @endif
+                            <div class="form-label-group">
+                                <input type="text" id="inputCode" class="form-control" placeholder="kode room" required autofocus name="code" value="{{old('code')}}">
+                                <label for="inputcode">Masukkan kode room</label>
+                            </div>
+
+                            <div class="form-label-group mb-5">
+                                <input type="password" name="password" class="form-control inputPassword" placeholder="Password (opsional)">
+                                <label for="inputPassword">Password</label>
+                                <i class="fas fa-eye" onclick="view(this)"></i>
+                            </div>
+
+                            <button class="btn btn-lg btn-primary btn-block" type="submit">Bergabung</button>
+                            <div class="m-2"></div>
+                        </form>
+                    </div>
+                    {{-- create Room --}}
+                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                           <form class="form-signin" method="POST" action="/createRoom">
+                            @csrf
+                            <div class="text-center mb-5">
+                                <h2 class="h2 mb-3 font-weight-bold">Buat Room</h2>
+                            </div>
+                            <div class="form-label-group">
+                                <input type="text" id="inputName" class="form-control" placeholder="nama room" required autofocus name="name">
+                                <label for="inputName">Masukkan nama room</label>
+                            </div>
+
+                            <div class="form-label-group">
+                                <input type="password" name="password" class="form-control inputPassword" placeholder="Password (opsional)">
+                                <label for="inputPassword">Password</label>
+                                <i class="fas fa-eye" onclick="view(this)"></i>
+                            </div>
+                            <div class="form-check mb-5">
+                                <input type="checkbox" name="public" id="public" class="form-check-input">
+                                <label class="form-check-label" for="public">
+                                    Public Room
+                                  </label>
+                            </div>
+
+
+                            <button class="btn btn-lg btn-primary btn-block" type="submit">Buat</button>
+                            <div class="m-2"></div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
