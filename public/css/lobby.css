@@ -3,6 +3,8 @@
     /* color: red; */
     user-select: none;
     -webkit-user-drag: none;
+    text-decoration: none !important;
+
 }
 
 ::-webkit-scrollbar{
@@ -202,7 +204,7 @@ body{
     padding-bottom: 10px;
 }
 
-.joined .bawah .room{
+.room{
     width: 90%;
     height: 70px;
     margin-top: 10px;
@@ -217,10 +219,10 @@ body{
     text-decoration: none;
 }
 
-.joined .bawah .room:hover, .profile .bawah .circle:hover{
+.room:hover, .profile .bawah .circle:hover{
     background-color: #a4a6fdd7;
 }
-.joined .bawah .room .profil-group{
+.room .profil-group{
     aspect-ratio: 1/1;
     height: 70%;
     border-radius: 20%;
@@ -229,13 +231,13 @@ body{
     opacity: .8;
 }
 
-.joined .bawah .room .nama{
+.room .nama{
     outline: none;
     font-weight: 400;
     padding: 0 10px 0 10px;
     font-size: 20px;
 }
-.joined .bawah .room .nama .kode{
+.room .nama .kode{
     outline: none;
     opacity: .6;
     font-size: 15px;
@@ -331,4 +333,14 @@ body{
     object-fit: cover;
     width: 100%;
     aspect-ratio: 1/1;
+}
+
+.boxRoom{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 50vh;
+    overflow-y:scroll ;
+    /* background: black; */
 }

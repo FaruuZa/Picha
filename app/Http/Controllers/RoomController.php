@@ -38,6 +38,7 @@ class RoomController extends Controller
     }
     public function createRoom(Request $request)
     {
+        // dd($request);
         $validated = $request->validate([
             'name' => 'required'
         ]);
@@ -47,7 +48,8 @@ class RoomController extends Controller
             'member' => Auth::user()->email,
             'owner' => Auth::user()->id,
             'code' => $code,
-            'password' => strlen($request->password) > 0 ? Hash::make($request->password) : ''
+            'password' => strlen($request->password) > 0 ? Hash::make($request->password) : '',
+            'public' => $request->public ? $request->public : 'false'
         ]);
         return redirect('/chat/'.$code);
     }
@@ -84,5 +86,15 @@ class RoomController extends Controller
             return redirect('/chat/'. $request->code);
         }
         return back()->with('noRoom', 'Room tidak ditemukan');
+    }
+
+    function wantJoin(Room $Room){
+        if ($Room) {
+            $members = explode('|', $Room->member);
+            return view('chat.joinRoom', compact(['Room', 'members']));
+        }
+        else{
+            return redirect('/');
+        }
     }
 }

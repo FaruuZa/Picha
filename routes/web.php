@@ -34,11 +34,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/chat/{Room}', [ChatController::class, 'index'])->name('home');
     Route::post('/chat/{Room}', [ChatController::class, 'sendMessage']);
     Route::get('/chat/messages/{Room}', [ChatController::class, 'showMessages']);
+    
+    Route::get('/join/{Room}', [RoomController::class, 'wantJoin']);
 
     Route::post('/del', [ChatController::class, 'deleteMessage']);
     Route::post('/edit', [ChatController::class, 'editMessage']);
     Route::post('/change', [ChatController::class, 'editProfile']);
-    Route::post('/report', [ChatController::class, 'report']);  
+    Route::post('/report', [ChatController::class, 'report']);
     Route::post('/createRoom', [RoomController::class, 'createRoom']);
     Route::post('/joinRoom', [RoomController::class, 'joinRoom']);
 

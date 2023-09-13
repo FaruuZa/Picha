@@ -35,7 +35,7 @@ class ChatController extends Controller
                 // dd($path);
                 return view('chat.index', compact(['messages', 'searched', 'path', 'Room']));
             } else {
-                return redirect('joinRoom');
+                return redirect('/join?id='.$Room->code);
             }
         }
         return redirect('/');
@@ -79,17 +79,25 @@ class ChatController extends Controller
 
     public function editProfile(Request $request)
     {
+        // dd($request);
         $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'name' => 'required'
         ]);
-        $imageName = 'user/' . Auth::user()->id . Auth::user()->name . '.' . $request->image->extension();
-        $request->image->move(public_path('img/user'), $imageName);
-
-        User::where('id', Auth::user()->id)->update([
-            'image' => $imageName,
-            'name' => $request->name
-        ]);
+        if ($request->image) {
+            $imageName = 'user/' . Auth::user()->id . Auth::user()->name . '.' . $request->image->extension();
+            $request->image->move(public_path('img/user'), $imageName);
+        }
+        if(isset($imageName)){
+            User::where('id', Auth::user()->id)->update([
+                'name' => $request->name,
+                'image' =>  $imageName
+            ]);
+        }else{
+            User::where('id', Auth::user()->id)->update([
+                'name' => $request->name,
+            ]);
+        }
         return back();
     }
 

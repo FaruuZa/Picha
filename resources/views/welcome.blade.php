@@ -33,7 +33,7 @@
                 @foreach ($joinedRooms as $room)
                 <a href="/chat/{{$room->code}}" class="room">
                     <div class="profil-group">
-                        <img src="{{asset('img/groupDummy.jpg')}}" alt="">
+                        <img src="{{asset('img/'.$room->profile)}}" alt="">
                     </div>
                     <div class="nama">
                         {{$room->name}} <span class="kode">#{{$room->code}}</span>

@@ -10,10 +10,10 @@
                         <span class="glyphicon glyphicon-camera"></span>
                         <span>Change Image</span>
                     </label>
-                    <input id="file" type="file" onchange="loadFile(event)" name="image" />
+                    <input id="file" type="file" onchange="loadFile(event)" name="image" accept="image/*"/>
                     <img src="{{ asset('/img/' . Auth::user()->image) }}" id="output" width="200" />
                 </div>
-                <input type=text value="{{ Auth::user()->name }}" name="name" onchange="gantiNama(this)" class="form-control" />
+                <input type=text value="{{ Auth::user()->name }}" name="name" onchange="gantiNama(this)" class="form-control" autocomplete="off"/>
             </div>
 
             <!-- Modal footer -->
@@ -189,9 +189,7 @@
                 <div class="tab-content" id="myTabContent">
                     {{-- find Room --}}
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        <div class="text-center mb-5">
-                            <h3 class="h3 mb-3 font-weight-bold">Temukan Room</h3>
-                        </div>
+                        @livewire('publicRoom   ')
                     </div>
                     {{-- join Room --}}
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
@@ -248,7 +246,7 @@
                                 <i class="fas fa-eye" onclick="view(this)"></i>
                             </div>
                             <div class="form-check mb-5">
-                                <input type="checkbox" name="public" id="public" class="form-check-input">
+                                <input type="checkbox" name="public" id="public" class="form-check-input" value="true">
                                 <label class="form-check-label" for="public">
                                     Public Room
                                   </label>

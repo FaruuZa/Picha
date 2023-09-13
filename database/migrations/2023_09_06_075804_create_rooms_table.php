@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('password')->nullable();
             $table->string('owner');
             $table->string('moderator')->nullable();
+            $table->enum('public', ['true', 'false'])->default('false');
+            $table->string('profile')->default('groupDummy.jpg');
             $table->timestamps();
         });
     }
