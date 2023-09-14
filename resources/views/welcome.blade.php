@@ -17,9 +17,12 @@
             <h2>{{Auth::user()->name}}</h2>
         </div>
         <div class="bawah">
-            <a class="circle" data-toggle="modal" data-target="#logoutModal" data-toggle="tooltip" data-placement="right" title="Logout"><i class="fas fa-sign-out-alt fa-lg" style="color: white"></i></a>
-            <a class="circle" data-toggle="modal" data-target="#roomModal" data-toggle="tooltip" data-placement="right" title="Add Room"><i class="fas fa-plus fa-lg" style="color: white"></i></a>
-            <a class="circle" data-toggle="modal" data-target="#myModal" data-toggle="tooltip" data-placement="right" title="Edit Profile"><i class="fas fa-edit fa-lg" style="color: white"></i></a>
+            <h2>{{Auth::user()->name}}</h2>
+            <div class="circles">
+                <a class="circle" data-toggle="modal" data-target="#logoutModal" data-toggle="tooltip" data-placement="right" title="Logout"><i class="fas fa-sign-out-alt fa-lg" style="color: white"></i></a>
+                <a class="circle" data-toggle="modal" data-target="#roomModal" data-toggle="tooltip" data-placement="right" title="Add Room"><i class="fas fa-plus fa-lg" style="color: white"></i></a>
+                <a class="circle" data-toggle="modal" data-target="#myModal" data-toggle="tooltip" data-placement="right" title="Edit Profile"><i class="fas fa-edit fa-lg" style="color: white"></i></a>
+            </div>
         </div>
     </div>
     <div class="joined">

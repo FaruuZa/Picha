@@ -2,12 +2,11 @@
     <div class="text-center mb-5">
         <h3 class="h3 mb-3 font-weight-bold">Temukan Room</h3>
     </div>
-    <input type="text" class="form-control" wire:model.live='search' name="search">
-    <div class="tes" wire:model='search'></div>
+    <input type="text" class="form-control mb-2" wire:model.live='search' name="search" placeholder="Masukkan nama Room">
     <div class="boxRoom">
         @if ($publicRooms->count() > 0)
         @foreach ($publicRooms as $room)
-        <a href="/join?code={{$room->code}}" class="room">
+        <a href="/join/{{$room->code}}" class="room">
             <div class="profil-group">
                 <img src="{{asset('img/'.$room->profile)}}" alt="">
             </div>
