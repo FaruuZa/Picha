@@ -11,8 +11,6 @@ class ShowMessages extends Component
 {
     use WithPagination;
     public $Room;
-    // public $Room =
-    // #[On('messageSended')]
     public function render()
     {
         return view('livewire.show-messages', [

@@ -35,7 +35,6 @@ class AuthController extends Controller
         return redirect('/login')->with('RegisterDone', 'Your Account has been registered');
     }
     public function authenticate(Request $request){
-
         $credentials = $request->validate([
             'email' => 'required|email:dns',
             'password' =>'required'
