@@ -8,11 +8,12 @@
 }
 
 ::-webkit-scrollbar{
-    background-color: white;
+    background-color: #d8d4ff;
+    width: 5px;
 }
 
 ::-webkit-scrollbar-thumb{
-    background-color: rgba(145, 138, 248, 0.664);
+    background-color: #b5adf7;
     border-radius: 2px;
 }
 
@@ -202,7 +203,7 @@ body{
     margin-top: 10px;
 }
 .joined .bawah{
-    height: 90%;
+    height: 80%;
     overflow-y: scroll;
 }
 .joined .scrollable{
@@ -400,4 +401,8 @@ body{
     .profile .bawah .circle{
         width: calc(100% / 4);
     }
+}
+
+.modal-content{
+    background-color: #d8d4ff;
 }

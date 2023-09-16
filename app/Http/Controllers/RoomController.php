@@ -11,10 +11,8 @@ class RoomController extends Controller
 {
     // function index yang dijalankan untuk menampilkan room yang sudah user masukkan
     public function index(){
-        // mencari room yang di kolom member terdapat email user yang didapat dari auth
-        $joinedRooms = Room::where('member', 'LIKE', '%' . Auth::user()->email .'%')->get();
-        // mengembalikan user ke tampilan welcome dengan membawa variable $joinedRooms
-        return view('welcome', compact(['joinedRooms']));
+        // mengembalikan user ke tampilan welcome
+        return view('welcome');
     }
 
     // function untuk meng-Generate kode unik
