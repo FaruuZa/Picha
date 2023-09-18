@@ -14,7 +14,7 @@ class JoinedRooms extends Component
 
     public function render()
     {
-        $joinedRooms = Room::where('member', 'LIKE', '%' . Auth::user()->email .'%')->paginate(10);
+        $joinedRooms = Room::where('member', 'LIKE', '%' . Auth::user()->id . Auth::user()->email .'%')->paginate(10);
         return view('livewire.joined-rooms', compact(['joinedRooms']));
     }
 }

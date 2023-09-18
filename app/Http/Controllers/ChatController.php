@@ -18,7 +18,7 @@ class ChatController extends Controller
             // dd($Room);
             $isMember = false;
             $members = explode('|', $Room->member);
-            if (in_array(Auth::user()->email, $members)) {
+            if (in_array(Auth::user()->id . Auth::user()->email, $members)) {
                 $isMember = true;
             } else {
                 $isMember = false;

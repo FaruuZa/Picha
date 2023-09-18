@@ -262,7 +262,9 @@ body{
 }
 
 .joined .atas h4{
-    color: rgb(115, 115, 255);
+    /* color: rgb(115, 115, 255); */
+    color: rgb(230, 230, 255);
+    /* color: rgb(255, 255, 255); */
 }
 .modalAvatar {
     margin: 10px;
@@ -334,6 +336,20 @@ body{
     width: 350px;
 }
 
+.modal.roomModal .modal-body{
+    color: rgb(166, 134, 255);
+    text-shadow: 0 0 2px rgb(255, 255, 255);
+}
+.modal.roomModal .modal-body input{
+    background-color: rgb(232, 228, 255);
+}
+
+.modal.roomModal .nav-tabs .nav-item .nav-link{
+    background-color: #d8d4ff;
+}
+.modal.roomModal .nav-tabs .nav-item .nav-link.active{
+    background-color: rgb(232, 228, 255);
+}
 .kontenModal input{
     margin-top: 10px;
 }

@@ -166,7 +166,7 @@
 
 {{-- modal add Room --}}
 
-<div class="modal fade" id="roomModal">
+<div class="modal fade roomModal" id="roomModal">
     <div class="modal-dialog logout-modal">
         <div class="modal-content">
             <div class="modal-header">

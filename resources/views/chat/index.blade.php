@@ -21,7 +21,7 @@
                         @if (Auth::user()->role != 'user')
                         <a href="#" data-toggle="tooltip" data-placement="right" title="Mods Tools"><i class="fas fa-tools fa-lg" style="color: #ffffff;"></i></a>
                         @endif
-                        <a href="" class="mb-3"><i class="fas fa-cog fa-lg" style="color: #ffffff;"></i></a>
+                        <a href="#" class="mb-3"><i class="fas fa-cog fa-lg" style="color: #ffffff;"></i></a>
                     </div>
                 </div>
 

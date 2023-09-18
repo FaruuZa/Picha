@@ -57,7 +57,7 @@ class RoomController extends Controller
         // membuat room
         Room::create([
             'name' => $request->name,
-            'member' => Auth::user()->email,
+            'member' => Auth::user()->id . Auth::user()->email,
             'owner' => Auth::user()->id,
             'code' => $code,
             'password' => strlen($request->password) > 0 ? Hash::make($request->password) : '',
@@ -82,7 +82,7 @@ class RoomController extends Controller
             // jika ada mengExplode atau mengconvert dari string data|data|data menjadi array ['data','data','data']
             $members = explode('|', $tujuan->member);
             // mengecek apakah di array members tidak terdapat user
-            if (!in_array(Auth::user()->email, $members)) {
+            if (!in_array(Auth::user()->id . Auth::user()->email, $members)) {
                 // jika iya, mengecek apakah room tersebut memiliki password
                 if ($tujuan->password != null) {
                     // jika iya memvalidasi apakah ada password yang diberikan user
@@ -93,7 +93,7 @@ class RoomController extends Controller
                     // mengecek apakah password yang diberikan user sama dengan password room
                     if(Hash::check($validated['password'], $tujuan->password)){
                         // jika iya, memasukkan email user ke array members
-                        array_push($members, Auth::user()->email);
+                        array_push($members, Auth::user()->id . Auth::user()->email);
                     }else{
                         // jika tidak, mengembalikan user ke halaman sebelumnya dengan membawa 'errPass' yang disimpan di session
                         return back()->with('errPass', 'password salah');
@@ -101,7 +101,7 @@ class RoomController extends Controller
 
                 } else {
                     // jika tidak, memasukkan email user ke array members
-                    array_push($members, Auth::user()->email);
+                    array_push($members, Auth::user()->id . Auth::user()->email);
                 }
                 // mengubah array members menjadi string/pipe
                 $mem2 = implode('|', $members);
@@ -124,7 +124,7 @@ class RoomController extends Controller
             // mengubah string/pipe pada kolom member menjadi array
             $members = explode('|', $Room->member);
             // mengecek apakah user tidak ada di array members
-            if (!in_array(Auth::user()->email, $members)) {
+            if (!in_array(Auth::user()->id . Auth::user()->email, $members)) {
                 // jika iya, mengembalikan user ke halaman joinRoom di folder chat dengan membawa variabel $Room dan $members
                 return view('chat.joinRoom', compact(['Room', 'members']));
             }else{
