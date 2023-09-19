@@ -10,7 +10,7 @@
         width: 100%;
     }
     .card{
-        width: calc(100vw - 70% + 10vw) !important;
+        width: calc(100vw - 70% + 5vw) !important;
         padding: 10px
     }
 
@@ -27,6 +27,11 @@
         font-size: 80%
     }
 
+    @media screen and (max-width:700px) {
+        .card{
+            width: 80% !important;
+        }
+    }
 
 </style>
 @endsection

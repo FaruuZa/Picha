@@ -34,7 +34,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/chat/{Room}', [ChatController::class, 'index'])->name('home');
     Route::post('/chat/{Room}', [ChatController::class, 'sendMessage']);
     Route::get('/chat/messages/{Room}', [ChatController::class, 'showMessages']);
-    
+
     Route::get('/join/{Room}', [RoomController::class, 'wantJoin']);
 
     Route::post('/del', [ChatController::class, 'deleteMessage']);

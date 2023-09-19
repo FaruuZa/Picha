@@ -11,9 +11,15 @@
                 <div class="profil-group">
                     <img src="{{asset('img/'.$room->profile)}}" alt="">
                 </div>
-                <div class="nama">
-                    {{$room->name}} <span class="kode">#{{$room->code}}</span>
+                <div class="info">
+                    <div class="nama">
+                        {{$room->name}}
+                    </div>
+                    {{-- <div class="count">
+                        {{count(explode('|', $room->member))}} Member{{count(explode('|', $room->member)) > 1 ? 's' : ''}}
+                    </div> --}}
                 </div>
+                <span class="kode">#{{$room->code}}</span>
             </a>
             @endforeach
         </div>

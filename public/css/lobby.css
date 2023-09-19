@@ -226,30 +226,53 @@ body{
     background-color: #8284f8d7;
     color: white;
     text-decoration: none;
+    position: relative;
 }
 
 .room:hover, .profile .bawah .circle:hover{
     background-color: #a4a6fdd7;
 }
 .room .profil-group{
+    /* height: 70%; */
+    height: 80%;
     aspect-ratio: 1/1;
-    height: 70%;
     border-radius: 20%;
     background-color: rgb(115, 115, 255);
     overflow: hidden;
     opacity: .8;
 }
 
-.room .nama{
-    outline: none;
-    font-weight: 400;
+.room .info{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
     padding: 0 10px 0 10px;
-    font-size: 20px;
+    text-shadow: none;
+    height: 100%;
 }
-.room .nama .kode{
+.room .info .nama{
+    outline: none;
+    font-size: 25px;
+    padding: 0;
+    margin: 0;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.room .kode{
     outline: none;
     opacity: .6;
     font-size: 15px;
+    position: absolute;
+    float: right;
+    right: 2%;
+    top: 10%;
+}
+.room .info .count{
+    font-size: 15px;
+    opacity: .7;
 }
 .joined .atas{
     height: 10%;
@@ -356,7 +379,7 @@ body{
 
 .profil-group img{
     object-fit: cover;
-    width: 100%;
+    height: 100%;
     aspect-ratio: 1/1;
 }
 

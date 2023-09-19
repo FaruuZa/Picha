@@ -35,7 +35,7 @@ class ChatController extends Controller
                 // dd($path);
                 return view('chat.index', compact(['messages', 'searched', 'path', 'Room']));
             } else {
-                return redirect('/join?id='.$Room->code);
+                return redirect('/join/'.$Room->code);
             }
         }
         return redirect('/');
