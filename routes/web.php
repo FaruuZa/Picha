@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\ModsController;
 use App\Http\Controllers\RoomController;
+use App\Livewire\Chat;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,10 +31,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/logout', function(){
         return back();
     });
-    Route::get('/', [RoomController::class, 'index']);
-    Route::get('/chat/{Room}', [ChatController::class, 'index'])->name('home');
-    Route::post('/chat/{Room}', [ChatController::class, 'sendMessage']);
+    Route::get('/', [RoomController::class, 'index'])->name('home');
     Route::get('/chat/messages/{Room}', [ChatController::class, 'showMessages']);
+    Route::get('/chat/{Room}', Chat::class);
 
     Route::get('/join/{Room}', [RoomController::class, 'wantJoin']);
 
@@ -43,6 +43,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/report', [ChatController::class, 'report']);
     Route::post('/createRoom', [RoomController::class, 'createRoom']);
     Route::post('/joinRoom', [RoomController::class, 'joinRoom']);
+
 
     Route::middleware('role:moderator,admin')->group(function () {
         Route::get('/mods', [ModsController::class, 'index']);

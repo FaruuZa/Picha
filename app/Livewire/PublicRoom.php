@@ -13,7 +13,7 @@ class PublicRoom extends Component
     public $search = '';
     public function render()
     {
-        $publicRooms = Room::where([['public', 'true'],['member', 'NOT LIKE','%' . Auth::user()->id . Auth::user()->email . '%'], ['name', 'like', '%' . $this->search . '%']])->paginate(10);
+        $publicRooms = Room::where([['public', 'true'],['member', 'NOT LIKE','%' . Auth::user()->id . Auth::user()->email . '%'], ['name', 'LIKE', '%' . $this->search . '%']])->paginate(10);
         return view('livewire.public-room', compact([
             'publicRooms'
         ]));

@@ -1,5 +1,5 @@
 
-const chat =  document.querySelector('.jspScrollable')
+const chat = document.querySelector('.jspScrollable')
 chat.scrollTop = chat.scrollHeight
 
 
@@ -16,7 +16,7 @@ $('#theirModal').on('show.bs.modal', function (event) {
     modal.find('.modal-body .modalAvatar img').attr('src', '/img/' + image)
     modal.find('.modal-header .trigger').data('id', id)
     modal.find('.modal-body p').text('created at: ' + created)
-  })
+})
 
 
 $('#deleteModal').on('show.bs.modal', function (event) {
@@ -33,7 +33,7 @@ $('#reportModal').on('show.bs.modal', function (event) {
     var modal = $(this)
     if (apa == 'message') {
         modal.find('.modal-title').text('laporkan pesan')
-    }else if(apa == 'user'){
+    } else if (apa == 'user') {
         modal.find('.modal-title').text('laporkan user')
     }
     modal.find('.modal-body .id').val(id)
@@ -50,19 +50,19 @@ $('#editModal').on('show.bs.modal', function (event) {
     modal.find('.modal-body .pesan').val(text)
 })
 
-function copyMessage(e){
-  f = e.parentElement.parentElement.parentElement.parentElement;
-  message = f.querySelector('.ks-message').textContent
-  navigator.clipboard.writeText(message);
-  $('#copyToast').toast('show')
+function copyMessage(e) {
+    f = e.parentElement.parentElement.parentElement.parentElement;
+    message = f.querySelector('.ks-message').textContent
+    navigator.clipboard.writeText(message);
+    $('#copyToast').toast('show')
 }
 
-$('#kirimInput').change(function (event){
+$('#kirimInput').change(function (event) {
     var value = $(this).val();
     var tombol = $(this).parent().find('#kirimButton')
-    if ( value.length > 0 ){
+    if (value.length > 0) {
         tombol.prop('disabled', false)
-    } else{
+    } else {
         tombol.prop('disabled', true)
     }
 })
@@ -77,13 +77,6 @@ var loadFile = function () {
 };
 
 
-  function showMessages(){
-    var kode = $('#kodeRoom').val()
-    // console.log('/chat/messages/' + kode)
-    $.get('/chat/messages/' + kode, (data) => {
-            $("#messagesContainer").html(data)
-        })
-  }
 
 //   $('document').ready(()=>{
 //     setInterval(showMessages, 100);
