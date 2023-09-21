@@ -137,4 +137,14 @@ class RoomController extends Controller
             return redirect('/');
         }
     }
+
+    function leaveRoom(Request $request){
+        $Room = Room::where('id', $request->id)->first();
+        $member = explode('|', $Room->member);
+        $result = array_diff($member, [Auth::user()->id.Auth::user()->email]);
+        $Room->update([
+            'member' => implode('|', $result)
+        ]);
+        return redirect('/');
+    }
 }

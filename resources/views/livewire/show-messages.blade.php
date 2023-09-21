@@ -4,13 +4,13 @@
     @endif
     @foreach ($messages as $message)
     <li class="ks-item {{ Auth::user()->name == $message->User->name ? 'ks-from' : 'ks-self' }}">
-        <a class="ks-avatar ks-online " data-toggle="modal" data-target="{{ Auth::user()->name == $message->User->name ? '#myModal' : '#theirModal' }}" data-whatever="{{ $message->User->name }}|{{ $message->User->image }}|{{ $message->User->created_at }}" data-id="{{ $message->User->id }}">
+        <a class="ks-avatar ks-online " data-toggle="modal" data-target="#theirModal" data-whatever="{{ $message->User->name }}|{{ $message->User->image }}|{{ $message->User->created_at }}" data-id="{{ $message->User->id }}">
             <img src="{{ asset('/img/' . $message->User->image) }}" width="36" height="36" class="rounded-circle">
         </a>
         <div class="ks-body">
             <div class="ks-header">
                 <div class="ks-name">
-                    <a style="color:rgb(97, 97, 248)" data-toggle="modal" data-target="{{ Auth::user()->name == $message->User->name ? '#myModal' : '#theirModal' }}" data-whatever="{{ $message->User->name }}|{{ $message->User->image }}|{{ $message->User->created_at }}" data-id="{{ $message->User->id }}">{{ $message->User->name }}</a>
+                    <a style="color:rgb(97, 97, 248)" data-toggle="modal" data-target="#theirModal" data-whatever="{{ $message->User->name }}|{{ $message->User->image }}|{{ $message->User->created_at }}" data-id="{{ $message->User->id }}">{{ $message->User->name }}</a>
                     @if ($message->User->role != 'user')
                     <i class="fas fa-{{ $message->User->role == 'moderator' ? 'shield-alt' : 'crown'}} ml-1" data-toggle="tooltip" title="{{$message->User->role}}"></i>
                     @endif

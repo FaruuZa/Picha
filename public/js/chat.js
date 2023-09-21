@@ -25,6 +25,12 @@ $('#deleteModal').on('show.bs.modal', function (event) {
     var modal = $(this)
     modal.find('.modal-body .id').val(tes)
 })
+$('#leaveRoomModal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget)
+    var tes = button.data('whatever')
+    var modal = $(this)
+    modal.find('.modal-body .id').val(tes)
+})
 
 $('#reportModal').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget)

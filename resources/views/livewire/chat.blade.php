@@ -13,13 +13,21 @@
                         @if (Auth::user()->role != 'user')
                         <a href="#" data-toggle="tooltip" data-placement="right" title="Mods Tools"><i class="fas fa-tools fa-lg" style="color: #ffffff;"></i></a>
                         @endif
-                        <a href="#" class="mb-3"><i class="fas fa-cog fa-lg" style="color: #ffffff;"></i></a>
+                        <div class="btn-group">
+                            <a class="mb-4" data-toggle="dropdown" aria-expanded="false"><i class="fas fa-cog fa-lg" style="color: #ffffff;"></i></a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <button class="dropdown-item text-danger" type="button" data-toggle="modal" data-target="#leaveRoomModal" data-whatever="{{$Room->id}}">Leave Room</button>
+                            </div>
+                          </div>
                     </div>
                 </div>
 
                 <div class="ks-messages ks-messenger__messages">
                     <div class="ks-header">
                         <div class="ks-description">
+                            <div class="profil-group">
+                                <img src="" alt="">
+                            </div>
                             <div class="ks-name">{{$Room->name}} # <span style="user-select: text">{{$Room->code}}</span> </div>
                         </div>
                         <div class="ks-controls">

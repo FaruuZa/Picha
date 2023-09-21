@@ -10,10 +10,10 @@
                         <span class="glyphicon glyphicon-camera"></span>
                         <span>Change Image</span>
                     </label>
-                    <input id="file" type="file" onchange="loadFile(event)" name="image" accept="image/*"/>
+                    <input id="file" type="file" onchange="loadFile(event)" name="image" accept="image/*" />
                     <img src="{{ asset('/img/' . Auth::user()->image) }}" id="output" width="200" />
                 </div>
-                <input type=text value="{{ Auth::user()->name }}" name="name" onchange="gantiNama(this)" class="form-control" autocomplete="off"/>
+                <input type=text value="{{ Auth::user()->name }}" name="name" onchange="gantiNama(this)" class="form-control" autocomplete="off" />
             </div>
 
             <!-- Modal footer -->
@@ -230,7 +230,7 @@
                     </div>
                     {{-- create Room --}}
                     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                           <form class="form-signin" method="POST" action="/createRoom">
+                        <form class="form-signin" method="POST" action="/createRoom">
                             @csrf
                             <div class="text-center mb-5">
                                 <h2 class="h2 mb-3 font-weight-bold">Buat Room</h2>
@@ -249,7 +249,7 @@
                                 <input type="checkbox" name="public" id="public" class="form-check-input" value="true">
                                 <label class="form-check-label" for="public">
                                     Public Room
-                                  </label>
+                                </label>
                             </div>
 
 
@@ -261,5 +261,33 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+
+{{-- Leave Room modal --}}
+
+<div class="modal fade" id="leaveRoomModal">
+    <div class="modal-dialog leaveRoom-modal">
+        <form action="/leaveRoom" method="POST">
+            @csrf
+            <div class="modal-content ">
+                @csrf
+                <div class="modal-body" style="padding-bottom: 0;">
+                    <input type="text" class="id" name="id" readonly hidden>
+                    <h5 class="modal-title mb-1" id="staticBackdropLabel">keluar</h5>
+                    <p>anda yakin ingin keluar dari room ini?</p>
+                </div>
+                <div class="modal-footer" style="padding-top:5px; padding-bottom:5px;">
+                    <div class="but" style="width:100%; display:flex; justify-content:space-between;">
+                        <button class="btn btn-outline-secondary" data-dismiss="modal" type="button" style="width:49%"><i class="fas fa-times" class="text-secondary"></i></button>
+                        <button class="btn btn-outline-danger" type="submit" style="width:49%"><i class="fas fa-check" class="text-danger"></i></button>
+                    </div>
+
+                </div>
+                {{-- <div class="modal-footer">
+                </div> --}}
+            </div>
+        </form>
     </div>
 </div>
