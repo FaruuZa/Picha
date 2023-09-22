@@ -142,9 +142,15 @@ class RoomController extends Controller
         $Room = Room::where('id', $request->id)->first();
         $member = explode('|', $Room->member);
         $result = array_diff($member, [Auth::user()->id.Auth::user()->email]);
-        $Room->update([
-            'member' => implode('|', $result)
-        ]);
+        if(count($result) > 0){
+            $Room->update([
+                'member' => implode('|', $result)
+            ]);
+        }else{
+            $Room->update([
+                'member' => ''
+            ]);
+        }
         return redirect('/');
     }
 }
