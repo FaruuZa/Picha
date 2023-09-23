@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Message;
 use App\Models\Room;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -147,10 +148,14 @@ class RoomController extends Controller
                 'member' => implode('|', $result)
             ]);
         }else{
-            $Room->update([
-                'member' => ''
-            ]);
+            $this->deleteRoom($Room);
         }
+        return redirect('/');
+    }
+
+    function deleteRoom(Room $Room){
+        Message::where('room_id', $Room->id)->delete();
+        $Room->delete();
         return redirect('/');
     }
 }

@@ -10,8 +10,7 @@ use Livewire\Component;
 class ShowMessages extends Component
 {
     use WithPagination;
-    public $Room;
-    public $banyak;
+    public $Room, $banyak;
     public $search = '';
     protected $listeners = ['ngesearch'];
 
